@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Công cụ căn thời gian đọc</title>
+
+    <style>
+
+        body {
+            margin: 0;
+            padding: 30px;
+
+            font-family: Arial, sans-serif;
+
+            background: #eef7ff;
+
+            color: #333;
+        }
+
+
+        .tool {
+            max-width: 900px;
+
+            margin: 0 auto;
+
+            padding: 30px;
+
+            background: white;
+
+            border-radius: 24px;
+
+            box-shadow:
+                0 10px 30px rgba(0, 0, 0, 0.15);
+        }
+
+
+        h1 {
+            color: #2196f3;
+
+            text-align: center;
+        }
+
+
+        .field {
+            margin: 20px 0;
+        }
+
+
+        label {
+            display: block;
+
+            margin-bottom: 8px;
+
+            font-size: 18px;
+            font-weight: bold;
+        }
+
+
+        select,
+        textarea {
+            width: 100%;
+
+            box-sizing: border-box;
+
+            padding: 12px;
+
+            border: 2px solid #bbdefb;
+
+            border-radius: 12px;
+
+            font-size: 18px;
+        }
+
+
+        textarea {
+            min-height: 100px;
+
+            resize: vertical;
+        }
+
+
+        audio {
+            width: 100%;
+
+            margin: 20px 0;
+        }
+
+
+        .current-word {
+            margin: 25px 0;
+
+            padding: 25px;
+
+            border-radius: 20px;
+
+            background: #fff8e1;
+
+            text-align: center;
+        }
+
+
+        #currentWord {
+            margin: 10px 0;
+
+            color: #ff9800;
+
+            font-size: 46px;
+        }
+
+
+        #progressText {
+            font-size: 18px;
+
+            color: #555;
+        }
+
+
+        .buttons {
+            display: flex;
+
+            flex-wrap: wrap;
+
+            justify-content: center;
+
+            gap: 12px;
+
+            margin: 20px 0;
+        }
+
+
+        button {
+            padding: 14px 22px;
+
+            border: none;
+
+            border-radius: 14px;
+
+            font-size: 18px;
+            font-weight: bold;
+
+            cursor: pointer;
+        }
+
+
+        #prepareBtn {
+            background: #2196f3;
+            color: white;
+        }
+
+
+        #startBtn {
+            background: #43a047;
+            color: white;
+        }
+
+
+        #markBtn {
+            background: #ff9800;
+            color: white;
+        }
+
+
+        #undoBtn {
+            background: #ef5350;
+            color: white;
+        }
+
+
+        #finishBtn {
+            background: #7e57c2;
+            color: white;
+        }
+
+
+        .instructions {
+            padding: 18px;
+
+            border-radius: 16px;
+
+            background: #e8f5e9;
+
+            line-height: 1.7;
+        }
+
+
+        #output {
+            min-height: 300px;
+
+            font-family: Consolas, monospace;
+
+            font-size: 15px;
+        }
+
+    </style>
+</head>
+
+
+<body>
+
+<div class="tool">
+
+    <h1>🎧 Công cụ căn thời gian đọc</h1>
+
+
+    <div class="instructions">
+
+        <strong>Cách sử dụng:</strong>
+
+        <br>
+
+        1. Chọn trang cần căn thời gian.
+
+        <br>
+
+        2. Bấm <strong>Chuẩn bị trang</strong>.
+
+        <br>
+
+        3. Bấm <strong>Bắt đầu nghe</strong>.
+
+        <br>
+
+        4. Mỗi khi nghe bắt đầu một tiếng mới,
+        bấm phím <strong>Space</strong>.
+
+        <br>
+
+        5. Sau tiếng cuối cùng, bấm
+        <strong>Hoàn thành</strong>.
+
+    </div>
+
+
+    <div class="field">
+
+        <label for="pageSelect">
+            Chọn trang:
+        </label>
+
+        <select id="pageSelect">
+
+            <option value="1">Trang 1</option>
+
+            <option value="2">Trang 2</option>
+
+            <option value="3">Trang 3</option>
+
+            <option value="4">Trang 4</option>
+
+            <option value="5">Trang 5</option>
+
+            <option value="6">Trang 6</option>
+
+            <option value="7">Trang 7</option>
+
+        </select>
+
+    </div>
+
+
+    <div class="field">
+
+        <label for="textInput">
+            Nội dung:
+        </label>
+
+        <textarea id="textInput"></textarea>
+
+    </div>
+
+
+    <audio
+        id="audioPlayer"
+        controls
+    >
+    </audio>
+
+
+    <div class="current-word">
+
+        <div>
+            Tiếng cần đánh dấu:
+        </div>
+
+        <div id="currentWord">
+            —
+        </div>
+
+        <div id="progressText">
+            0 / 0
+        </div>
+
+    </div>
+
+
+    <div class="buttons">
+
+        <button id="prepareBtn">
+            1. Chuẩn bị trang
+        </button>
+
+        <button id="startBtn">
+            2. Bắt đầu nghe
+        </button>
+
+        <button id="markBtn">
+            Đánh dấu tiếng
+        </button>
+
+        <button id="undoBtn">
+            Hoàn tác
+        </button>
+
+        <button id="finishBtn">
+            Hoàn thành
+        </button>
+
+    </div>
+
+
+    <div class="field">
+
+        <label for="output">
+            JSON kết quả:
+        </label>
+
+        <textarea
+            id="output"
+            readonly
+        ></textarea>
+
+    </div>
+
+</div>
+
+
+<script src="timing-tool.js"></script>
+
+</body>
+
+</html>

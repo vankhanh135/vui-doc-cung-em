@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Kết quả bài học</title>
+
+    <!-- FONT NUNITO -->
+    <link
+        rel="preconnect"
+        href="https://fonts.googleapis.com"
+    >
+
+    <link
+        rel="preconnect"
+        href="https://fonts.gstatic.com"
+        crossorigin
+    >
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;500;600;700;800;900&display=swap"
+        rel="stylesheet"
+    >
+
+    <!-- CSS CHUNG -->
+    <link
+        rel="stylesheet"
+        href="../style.css"
+    >
+
+    <!-- CSS TRANG KẾT QUẢ -->
+    <link
+        rel="stylesheet"
+        href="result.css"
+    >
+
+</head>
+
+
+<body>
+
+    <!-- ========================================
+         TRANG KẾT QUẢ
+    ======================================== -->
+
+    <main class="result-page">
+
+
+        <!-- LOGO -->
+        <img
+            src="../assets/logo/logo.png"
+            alt="Vui đọc cùng em"
+            class="result-logo"
+        >
+
+
+        <!-- KHUNG KẾT QUẢ -->
+        <section class="result-card">
+
+
+            <!-- ICON HOÀN THÀNH -->
+            <img
+                src="../assets/popup/trophy_icon.png"
+                alt="Cúp thành tích"
+                class="result-trophy"
+            >
+
+
+            <!-- TIÊU ĐỀ -->
+            <h1>
+                HOÀN THÀNH BÀI HỌC!
+            </h1>
+
+
+            <!-- LỜI KHEN -->
+            <p
+                id="resultMessage"
+                class="result-message"
+            >
+                Em đã hoàn thành phần Đọc hiểu!
+            </p>
+            <!-- XẾP HẠNG SAO -->
+            <div
+                id="starRating"
+                class="star-rating"
+                aria-label="Xếp hạng kết quả"
+            >
+                ⭐ ⭐ ⭐
+            </div>
+
+            <!-- KẾT QUẢ -->
+            <div class="score-box">
+
+                <p class="score-label">
+                    Kết quả của em
+                </p>
+
+                <div class="score-number">
+
+                    <span id="correctScore">
+                        0
+                    </span>
+
+                    <span class="score-divider">
+                        /
+                    </span>
+
+                    <span id="totalScore">
+                        5
+                    </span>
+
+                </div>
+
+                <p class="score-description">
+                    câu đúng ngay lần đầu
+                </p>
+
+            </div>
+
+
+            <!-- SỐ LẦN THỬ LẠI -->
+            <p class="wrong-attempts">
+
+                Số lần thử lại:
+
+                <strong id="wrongAttempts">
+                    0
+                </strong>
+
+            </p>
+    <!-- ========================================
+        PHẦN THƯỞNG
+    ======================================== -->
+
+    <div class="reward-box">
+
+        <img
+            src="../assets/popup/reward_icon.png"
+            alt="Phần thưởng"
+            class="reward-icon"
+        >
+
+        <div class="reward-info">
+
+            <p class="reward-title">
+                PHẦN THƯỞNG CỦA EM
+            </p>
+
+            <p
+                id="rewardText"
+                class="reward-text"
+            >
+                Em nhận được 3 ngôi sao!
+            </p>
+
+        </div>
+
+    </div>
+
+            <!-- CÁC NÚT -->
+            <div class="result-buttons">
+
+
+                <!-- HỌC LẠI -->
+                <button
+                    id="retryButton"
+                    class="result-button retry-button"
+                    type="button"
+                >
+                    🔄 Học lại
+                </button>
+
+
+                <!-- CHỌN BÀI KHÁC -->
+                <button
+                    id="lessonListButton"
+                    class="result-button lesson-list-button"
+                    type="button"
+                >
+                    📚 Chọn bài khác
+                </button>
+
+
+                <!-- TRANG CHỦ -->
+                <button
+                    id="homeButton"
+                    class="result-button home-button"
+                    type="button"
+                >
+                    🏠 Trang chủ
+                </button>
+
+
+            </div>
+
+
+        </section>
+
+
+    </main>
+
+
+    <!-- JAVASCRIPT -->
+    <script src="result.js"></script>
+
+</body>
+
+</html>

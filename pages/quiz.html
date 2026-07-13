@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link
+    href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;500;600;700;800;900&display=swap"
+    rel="stylesheet"
+>
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Đọc hiểu</title>
+
+    <link rel="stylesheet" href="../style.css">
+    <link rel="stylesheet" href="quiz.css">
+
+</head>
+
+<body>
+
+    <!-- ==========================
+         THANH ĐIỀU HƯỚNG
+    =========================== -->
+
+    <div class="top-nav">
+
+        <a href="../index.html"
+           class="nav-btn home-btn">
+
+            🏠 Trang chủ
+
+        </a>
+
+        <button
+            class="nav-btn back-btn"
+            onclick="history.back()">
+
+            ← Quay lại
+
+        </button>
+
+    </div>
+
+    <!-- ==========================
+         TRANG ĐỌC HIỂU
+    =========================== -->
+
+    <div class="quiz-page">
+
+        <img
+            class="logo"
+            src="../assets/logo/logo.png">
+
+        <h1>
+
+            📝 ĐỌC HIỂU
+
+        </h1>
+
+        <div class="quiz-box">
+
+            <h2 id="questionNumber">
+
+                Câu 1 / 5
+
+            </h2>
+
+            <p id="questionText">
+
+                Đang tải câu hỏi...
+
+            </p>
+        <button
+            id="playQuestionAudio"
+            class="question-audio-button"
+            type="button"
+        >
+            🔊 Nghe câu hỏi
+        </button>
+            <div id="answers">
+
+            </div>
+
+            <button id="nextQuestion">
+
+                Tiếp tục →
+
+            </button>
+
+        </div>
+
+        </div>
+
+
+    <!-- ==========================
+         POPUP PHẢN HỒI
+    =========================== -->
+
+    <div
+        id="feedbackPopup"
+        class="feedback-popup"
+    >
+
+        <div class="feedback-content">
+
+            <!-- ICON PHẢN HỒI -->
+            <img
+                id="feedbackIcon"
+                class="feedback-icon"
+                src=""
+                alt="Phản hồi"
+            >
+
+
+            <!-- TIÊU ĐỀ -->
+            <h2 id="feedbackTitle">
+
+            </h2>
+
+
+            <!-- NỘI DUNG -->
+            <p id="feedbackMessage">
+
+            </p>
+
+
+            <!-- NÚT TRONG POPUP -->
+            <button
+                id="feedbackButton"
+                type="button"
+            >
+
+                Tiếp tục
+
+            </button>
+
+        </div>
+
+    </div>
+
+
+    <script src="quiz.js"></script>
+
+</body>
+
+</html>

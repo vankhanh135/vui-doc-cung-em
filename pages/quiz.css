@@ -1,0 +1,879 @@
+/* ========================================
+   THIẾT LẬP CHUNG
+======================================== */
+
+* {
+    box-sizing: border-box;
+}
+
+html,
+body {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    min-height: 100%;
+}
+
+body{
+    margin:0;
+
+    font-family:
+        "Nunito",
+        Arial,
+        sans-serif;
+    background:
+        url("../assets/background/home-bg.jpg")
+        center center / cover
+        fixed
+        no-repeat;
+
+    overflow-x: hidden;
+}
+
+
+/* ========================================
+   TRANG ĐỌC HIỂU
+======================================== */
+
+.quiz-page {
+    width: 100%;
+    min-height: 100vh;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    padding:
+        35px
+        24px
+        60px;
+
+    background:
+        rgba(255, 255, 255, 0.42);
+
+    backdrop-filter:
+        blur(7px);
+
+    -webkit-backdrop-filter:
+        blur(7px);
+}
+
+
+/* ========================================
+   LOGO
+======================================== */
+
+.quiz-page .logo {
+    width: 150px;
+    height: auto;
+
+    margin:
+        10px
+        auto
+        15px;
+
+    display: block;
+}
+
+
+/* ========================================
+   TIÊU ĐỀ ĐỌC HIỂU
+======================================== */
+
+.quiz-page h1 {
+    margin:
+        0
+        0
+        25px;
+
+    color: #1976D2;
+
+    font-size: 44px;
+    font-weight: 800;
+
+    text-align: center;
+
+    letter-spacing: 1px;
+
+    text-shadow:
+        0 3px 8px
+        rgba(255, 255, 255, 0.9);
+}
+
+
+/* ========================================
+   KHUNG CÂU HỎI
+======================================== */
+
+.quiz-box {
+    width: min(92%, 920px);
+
+    background: white;
+
+    border-radius: 28px;
+
+    padding:
+        32px
+        38px
+        36px;
+
+    box-shadow:
+        0 15px 40px
+        rgba(0, 0, 0, 0.18);
+
+    border:
+        2px solid
+        rgba(255, 255, 255, 0.9);
+}
+
+
+/* ========================================
+   SỐ THỨ TỰ CÂU HỎI
+======================================== */
+
+#questionNumber {
+    margin:
+        0
+        0
+        18px;
+
+    color: #43A047;
+
+    font-size: 28px;
+    font-weight: 800;
+}
+
+
+/* ========================================
+   NỘI DUNG CÂU HỎI
+======================================== */
+
+#questionText {
+    margin:
+        0
+        0
+        18px;
+
+    color: #2F2F2F;
+
+    font-size: 30px;
+    font-weight: 700;
+
+    line-height: 1.5;
+}
+
+
+/* ========================================
+   NÚT NGHE CÂU HỎI
+======================================== */
+
+.question-audio-button {
+    display: inline-flex;
+
+    align-items: center;
+    justify-content: center;
+
+    gap: 10px;
+
+    min-height: 52px;
+
+    margin:
+        0
+        0
+        24px;
+
+    padding:
+        12px
+        22px;
+
+    border: none;
+
+    border-radius: 18px;
+
+    background: #2196F3;
+
+    color: white;
+
+    font-size: 20px;
+    font-weight: 700;
+
+    cursor: pointer;
+
+    box-shadow:
+        0 6px 14px
+        rgba(33, 150, 243, 0.28);
+
+    transition:
+        transform 0.2s ease,
+        background 0.2s ease,
+        box-shadow 0.2s ease;
+}
+
+.question-audio-button:hover {
+    background: #1976D2;
+
+    transform:
+        translateY(-2px);
+
+    box-shadow:
+        0 8px 18px
+        rgba(33, 150, 243, 0.35);
+}
+
+.question-audio-button:active {
+    transform:
+        scale(0.97);
+}
+
+
+/* ========================================
+   DANH SÁCH ĐÁP ÁN
+======================================== */
+
+#answers {
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 16px;
+}
+
+
+/* ========================================
+   TỪNG ĐÁP ÁN
+======================================== */
+
+.answer {
+    width: 100%;
+
+    padding:
+        18px
+        22px;
+
+    background: #F7F9FC;
+
+    border:
+        3px solid
+        transparent;
+
+    border-radius: 18px;
+
+    color: #333333;
+
+    font-size: 24px;
+    font-weight: 600;
+
+    line-height: 1.4;
+
+    cursor: pointer;
+
+    user-select: none;
+
+    transition:
+        transform 0.2s ease,
+        background 0.2s ease,
+        border-color 0.2s ease,
+        box-shadow 0.2s ease;
+}
+
+.answer:hover {
+    background: #EAF5FF;
+
+    border-color: #64B5F6;
+
+    transform:
+        translateY(-2px);
+
+    box-shadow:
+        0 6px 14px
+        rgba(33, 150, 243, 0.12);
+}
+
+
+/* ========================================
+   ĐÁP ÁN ĐƯỢC CHỌN
+======================================== */
+
+.answer.selected {
+    background: #D9EEFF;
+
+    border-color: #1976D2;
+
+    color: #0D47A1;
+
+    font-weight: 800;
+
+    box-shadow:
+        0 5px 14px
+        rgba(25, 118, 210, 0.18);
+}
+
+
+/* ========================================
+   NÚT TIẾP TỤC
+======================================== */
+
+#nextQuestion {
+    width: 100%;
+
+    min-height: 62px;
+
+    margin-top: 28px;
+
+    padding:
+        15px
+        24px;
+
+    border: none;
+
+    border-radius: 18px;
+
+    background: #43A047;
+
+    color: white;
+
+    font-size: 26px;
+    font-weight: 800;
+
+    cursor: pointer;
+
+    box-shadow:
+        0 7px 16px
+        rgba(67, 160, 71, 0.28);
+
+    transition:
+        transform 0.2s ease,
+        background 0.2s ease,
+        box-shadow 0.2s ease;
+}
+
+#nextQuestion:hover {
+    background: #2E7D32;
+
+    transform:
+        translateY(-2px);
+
+    box-shadow:
+        0 9px 20px
+        rgba(67, 160, 71, 0.35);
+}
+
+#nextQuestion:active {
+    transform:
+        scale(0.98);
+}
+
+
+/* ========================================
+   LỚP NỀN POPUP PHẢN HỒI
+======================================== */
+
+.feedback-popup {
+    position: fixed;
+
+    inset: 0;
+
+    z-index: 9999;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    padding: 24px;
+
+    background:
+        rgba(25, 45, 70, 0.42);
+
+    backdrop-filter:
+        blur(5px);
+
+    -webkit-backdrop-filter:
+        blur(5px);
+
+    opacity: 0;
+
+    visibility: hidden;
+
+    pointer-events: none;
+
+    transition:
+        opacity 0.25s ease,
+        visibility 0.25s ease;
+}
+
+
+/* ========================================
+   HIỂN THỊ POPUP
+======================================== */
+
+.feedback-popup.show {
+    opacity: 1;
+
+    visibility: visible;
+
+    pointer-events: auto;
+}
+
+
+/* ========================================
+   KHUNG NỘI DUNG POPUP
+======================================== */
+
+.feedback-content {
+    width: min(90%, 460px);
+
+    background: white;
+
+    border-radius: 30px;
+
+    padding:
+        28px
+        32px
+        30px;
+
+    text-align: center;
+
+    box-shadow:
+        0 22px 60px
+        rgba(0, 0, 0, 0.28);
+
+    transform:
+        translateY(20px)
+        scale(0.9);
+
+    transition:
+        transform 0.3s ease;
+}
+
+
+/* ========================================
+   HIỆU ỨNG POPUP XUẤT HIỆN
+======================================== */
+
+.feedback-popup.show
+.feedback-content {
+    transform:
+        translateY(0)
+        scale(1);
+}
+
+
+/* ========================================
+   ICON TRONG POPUP
+======================================== */
+
+.feedback-icon {
+    display: block;
+
+    width: 150px;
+    height: 150px;
+
+    object-fit: contain;
+
+    margin:
+        0
+        auto
+        12px;
+}
+
+
+/* ========================================
+   TIÊU ĐỀ POPUP
+======================================== */
+
+#feedbackTitle {
+    margin:
+        0
+        0
+        10px;
+
+    color: #1976D2;
+
+    font-size: 34px;
+    font-weight: 900;
+
+    line-height: 1.25;
+}
+
+
+/* ========================================
+   NỘI DUNG POPUP
+======================================== */
+
+#feedbackMessage {
+    margin:
+        0
+        0
+        24px;
+
+    color: #444444;
+
+    font-size: 24px;
+    font-weight: 600;
+
+    line-height: 1.45;
+}
+
+
+/* ========================================
+   NÚT TRONG POPUP
+======================================== */
+
+#feedbackButton {
+    width: 100%;
+
+    min-height: 58px;
+
+    padding:
+        14px
+        24px;
+
+    border: none;
+
+    border-radius: 18px;
+
+    background: #43A047;
+
+    color: white;
+
+    font-size: 24px;
+    font-weight: 800;
+
+    cursor: pointer;
+
+    box-shadow:
+        0 7px 16px
+        rgba(67, 160, 71, 0.28);
+
+    transition:
+        transform 0.2s ease,
+        background 0.2s ease;
+}
+
+#feedbackButton:hover {
+    background: #2E7D32;
+
+    transform:
+        translateY(-2px);
+}
+
+#feedbackButton:active {
+    transform:
+        scale(0.98);
+}
+
+
+/* ========================================
+   RESPONSIVE - MÀN HÌNH NHỎ
+======================================== */
+
+@media
+(max-width: 768px) {
+
+    .quiz-page {
+        padding:
+            24px
+            14px
+            40px;
+    }
+
+
+    .quiz-page .logo {
+        width: 120px;
+    }
+
+
+    .quiz-page h1 {
+        font-size: 34px;
+
+        margin-bottom: 20px;
+    }
+
+
+    .quiz-box {
+        width: 100%;
+
+        padding:
+            25px
+            20px
+            28px;
+
+        border-radius: 24px;
+    }
+
+
+    #questionNumber {
+        font-size: 24px;
+    }
+
+
+    #questionText {
+        font-size: 25px;
+    }
+
+
+    .answer {
+        padding:
+            16px
+            18px;
+
+        font-size: 21px;
+    }
+
+
+    #nextQuestion {
+        font-size: 23px;
+    }
+
+
+    .feedback-content {
+        padding:
+            24px
+            22px
+            26px;
+    }
+
+
+    .feedback-icon {
+        width: 125px;
+        height: 125px;
+    }
+
+
+    #feedbackTitle {
+        font-size: 30px;
+    }
+
+
+    #feedbackMessage {
+        font-size: 21px;
+    }
+
+}
+/* ==========================
+   ĐỒNG BỘ FONT TOÀN BỘ QUIZ
+========================== */
+
+button,
+.answer,
+.quiz-box,
+.feedback-popup,
+.feedback-content {
+
+    font-family:
+        "Nunito",
+        Arial,
+        sans-serif;
+
+}
+
+
+/* Tiêu đề popup */
+
+#feedbackTitle {
+
+    font-family:
+        "Nunito",
+        Arial,
+        sans-serif;
+
+    font-weight: 900;
+
+    letter-spacing: 0;
+
+}
+
+
+/* Nội dung popup */
+
+#feedbackMessage {
+
+    font-family:
+        "Nunito",
+        Arial,
+        sans-serif;
+
+    font-weight: 700;
+
+}
+
+
+/* Nút popup */
+
+#feedbackButton {
+
+    font-family:
+        "Nunito",
+        Arial,
+        sans-serif;
+
+    font-weight: 800;
+
+}
+/* ========================================
+   MÀU POPUP THEO TRẠNG THÁI
+======================================== */
+
+/* ĐÚNG */
+
+.feedback-popup.success #feedbackTitle {
+    color: #2E9D45;
+}
+
+.feedback-popup.success #feedbackButton {
+    background: linear-gradient(
+        135deg,
+        #66BB6A,
+        #43A047
+    );
+}
+
+
+/* SAI */
+
+.feedback-popup.error #feedbackTitle {
+    color: #F05A47;
+}
+
+.feedback-popup.error #feedbackButton {
+    background: linear-gradient(
+        135deg,
+        #FF8A65,
+        #F05A47
+    );
+}
+
+
+/* CẢNH BÁO */
+
+.feedback-popup.warning #feedbackTitle {
+    color: #F5A623;
+}
+
+.feedback-popup.warning #feedbackButton {
+    background: linear-gradient(
+        135deg,
+        #FFCA28,
+        #F5A623
+    );
+}
+
+
+/* HOÀN THÀNH */
+
+.feedback-popup.finish #feedbackTitle {
+    color: #1976D2;
+}
+
+.feedback-popup.finish #feedbackButton {
+    background: linear-gradient(
+        135deg,
+        #42A5F5,
+        #1976D2
+    );
+}
+/* ========================================
+   THANH ĐIỀU HƯỚNG
+======================================== */
+
+.top-nav {
+    position: fixed;
+
+    top: 20px;
+    left: 20px;
+    right: 20px;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    z-index: 9999;
+
+    pointer-events: none;
+}
+
+
+/* ========================================
+   NÚT ĐIỀU HƯỚNG
+======================================== */
+
+.top-nav .nav-btn {
+    pointer-events: auto;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    gap: 8px;
+
+    min-width: 150px;
+
+    padding: 14px 24px;
+
+    box-sizing: border-box;
+
+    border: none;
+    border-radius: 50px;
+
+    font-family:
+        "Nunito",
+        Arial,
+        sans-serif;
+
+    font-size: 20px;
+    font-weight: 800;
+
+    color: white;
+
+    text-decoration: none;
+
+    cursor: pointer;
+
+    box-shadow:
+        0 8px 20px
+        rgba(0, 0, 0, 0.20);
+
+    transition:
+        transform 0.25s ease,
+        box-shadow 0.25s ease,
+        background 0.25s ease;
+}
+
+
+/* ========================================
+   NÚT TRANG CHỦ
+======================================== */
+
+.top-nav .home-btn {
+    background: #43A047;
+}
+
+.top-nav .home-btn:hover {
+    background: #2E7D32;
+
+    transform: translateY(-3px);
+
+    box-shadow:
+        0 12px 25px
+        rgba(0, 0, 0, 0.25);
+}
+
+
+/* ========================================
+   NÚT QUAY LẠI
+======================================== */
+
+.top-nav .back-btn {
+    background: #FB8C00;
+}
+
+.top-nav .back-btn:hover {
+    background: #EF6C00;
+
+    transform: translateY(-3px);
+
+    box-shadow:
+        0 12px 25px
+        rgba(0, 0, 0, 0.25);
+}

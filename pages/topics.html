@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Chọn chủ đề</title>
+
+    <link rel="stylesheet" href="../style.css">
+    <link rel="stylesheet" href="topics.css">
+</head>
+
+
+<body>
+
+    <!-- =========================
+         NÚT BẬT / TẮT NHẠC NỀN
+    ========================== -->
+
+    <button
+        id="bgmToggleButton"
+        class="bgm-toggle-button"
+        type="button"
+        aria-label="Tắt nhạc nền"
+        title="Tắt nhạc nền"
+    >
+        <img
+            id="bgmToggleIcon"
+            src="../assets/icons/sound.png"
+            alt="Bật hoặc tắt nhạc nền"
+        >
+    </button>
+
+
+    <!-- =========================
+         THANH ĐIỀU HƯỚNG
+    ========================== -->
+
+    <div class="top-nav">
+
+        <a
+            href="../index.html"
+            class="nav-btn home-btn"
+        >
+            🏠 Trang chủ
+        </a>
+
+        <button
+            class="nav-btn back-btn"
+            onclick="history.back()"
+        >
+            ← Quay lại
+        </button>
+
+    </div>
+
+
+    <!-- =========================
+         TRANG CHỌN CHỦ ĐỀ
+    ========================== -->
+
+    <div class="topic-page">
+
+        <img
+            src="../assets/logo/logo.png"
+            class="logo"
+            alt="Vui đọc cùng em"
+        >
+
+        <h1>Xin chào bạn!</h1>
+
+        <p class="subtitle">
+            Hôm nay bạn muốn học chủ đề nào?
+        </p>
+
+
+        <!-- DANH SÁCH CHỦ ĐỀ -->
+
+        <div class="topic-grid">
+
+            <a
+                class="topic-card"
+                href="lesson-list.html?topic=1"
+            >
+                <img
+                    src="../assets/topics/chude1.png"
+                    alt="Tôi và các bạn"
+                >
+
+                <h2>Tôi và các bạn</h2>
+            </a>
+
+
+            <a
+                class="topic-card"
+                href="lesson-list.html?topic=2"
+            >
+                <img
+                    src="../assets/topics/chude2.png"
+                    alt="Mái ấm gia đình"
+                >
+
+                <h2>Mái ấm gia đình</h2>
+            </a>
+
+
+            <a
+                class="topic-card"
+                href="lesson-list.html?topic=3"
+            >
+                <img
+                    src="../assets/topics/chude3.png"
+                    alt="Bài học từ cuộc sống"
+                >
+
+                <h2>Bài học từ cuộc sống</h2>
+            </a>
+
+
+            <a
+                class="topic-card"
+                href="lesson-list.html?topic=4"
+            >
+                <img
+                    src="../assets/topics/chude4.png"
+                    alt="Thiên nhiên kì thú"
+                >
+
+                <h2>Thiên nhiên kì thú</h2>
+            </a>
+
+        </div>
+
+    </div>
+
+
+    <!-- =========================
+         JAVASCRIPT
+    ========================== -->
+
+    <script src="../js/audio-manager.js"></script>
+    <script src="topics.js"></script>
+
+</body>
+
+</html>

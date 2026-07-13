@@ -1,0 +1,714 @@
+/* ========================================
+   THIẾT LẬP CHUNG
+======================================== */
+
+* {
+    box-sizing: border-box;
+}
+
+html,
+body {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    min-height: 100%;
+}
+
+body {
+    font-family:
+        "Nunito",
+        Arial,
+        sans-serif;
+
+    background:
+        url("../assets/background/home-bg.jpg")
+        center center / cover
+        fixed
+        no-repeat;
+
+    overflow-x: hidden;
+}
+
+
+/* ========================================
+   TRANG KẾT QUẢ
+======================================== */
+
+.result-page {
+    width: 100%;
+    min-height: 100vh;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    padding: 40px 20px;
+
+    background:
+        rgba(255, 255, 255, 0.35);
+
+    backdrop-filter: blur(6px);
+}
+
+
+/* ========================================
+   LOGO
+======================================== */
+
+.result-logo {
+    width: 170px;
+    max-width: 40vw;
+
+    margin-bottom: 20px;
+
+    object-fit: contain;
+
+    animation:
+        logoFloat
+        3s
+        ease-in-out
+        infinite;
+}
+
+
+@keyframes logoFloat {
+
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-7px);
+    }
+
+}
+
+
+/* ========================================
+   KHUNG KẾT QUẢ
+======================================== */
+
+.result-card {
+    width: 90%;
+    max-width: 760px;
+
+    padding: 35px 45px 40px;
+
+    text-align: center;
+
+    background:
+        rgba(255, 255, 255, 0.96);
+
+    border-radius: 32px;
+
+    box-shadow:
+        0 18px 45px
+        rgba(0, 0, 0, 0.18);
+
+    animation:
+        resultAppear
+        0.6s
+        ease;
+}
+
+
+@keyframes resultAppear {
+
+    from {
+        opacity: 0;
+        transform:
+            translateY(25px)
+            scale(0.96);
+    }
+
+    to {
+        opacity: 1;
+        transform:
+            translateY(0)
+            scale(1);
+    }
+
+}
+
+
+/* ========================================
+   ICON CÚP
+======================================== */
+
+.result-trophy {
+    width: 135px;
+    height: 135px;
+
+    object-fit: contain;
+
+    margin-bottom: 5px;
+
+    animation:
+        trophyBounce
+        1.8s
+        ease-in-out
+        infinite;
+}
+
+
+@keyframes trophyBounce {
+
+    0%,
+    100% {
+        transform:
+            translateY(0)
+            rotate(0deg);
+    }
+
+    50% {
+        transform:
+            translateY(-8px)
+            rotate(2deg);
+    }
+
+}
+
+
+/* ========================================
+   TIÊU ĐỀ
+======================================== */
+
+.result-card h1 {
+    margin:
+        5px
+        0
+        10px;
+
+    color: #1976D2;
+
+    font-size:
+        clamp(
+            30px,
+            4vw,
+            48px
+        );
+
+    font-weight: 900;
+
+    line-height: 1.2;
+}
+
+
+/* ========================================
+   LỜI KHEN
+======================================== */
+
+.result-message {
+    margin:
+        0
+        0
+        25px;
+
+    color: #444;
+
+    font-size:
+        clamp(
+            20px,
+            2.5vw,
+            28px
+        );
+
+    font-weight: 700;
+}
+
+
+/* ========================================
+   KHUNG ĐIỂM
+======================================== */
+
+.score-box {
+    width: 100%;
+
+    padding: 22px;
+
+    margin-bottom: 20px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #E3F2FD,
+            #F1F8E9
+        );
+
+    border:
+        3px solid
+        #90CAF9;
+
+    border-radius: 24px;
+}
+
+
+.score-label {
+    margin:
+        0
+        0
+        5px;
+
+    color: #43A047;
+
+    font-size: 23px;
+
+    font-weight: 800;
+}
+
+
+.score-number {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    gap: 10px;
+
+    margin:
+        5px
+        0;
+
+    color: #1976D2;
+
+    font-size:
+        clamp(
+            55px,
+            8vw,
+            82px
+        );
+
+    font-weight: 900;
+
+    line-height: 1;
+}
+
+
+.score-divider {
+    color: #90A4AE;
+}
+
+
+.score-description {
+    margin:
+        8px
+        0
+        0;
+
+    color: #555;
+
+    font-size: 20px;
+
+    font-weight: 700;
+}
+
+
+/* ========================================
+   SỐ LẦN THỬ LẠI
+======================================== */
+
+.wrong-attempts {
+    margin:
+        0
+        0
+        28px;
+
+    color: #555;
+
+    font-size: 21px;
+
+    font-weight: 700;
+}
+
+
+.wrong-attempts strong {
+    color: #F57C00;
+
+    font-size: 26px;
+
+    font-weight: 900;
+}
+
+
+/* ========================================
+   CÁC NÚT
+======================================== */
+
+.result-buttons {
+    display: grid;
+
+    grid-template-columns:
+        repeat(
+            3,
+            1fr
+        );
+
+    gap: 15px;
+
+    width: 100%;
+}
+
+
+.result-button {
+    min-height: 60px;
+
+    padding:
+        14px
+        16px;
+
+    border: none;
+
+    border-radius: 18px;
+
+    color: white;
+
+    font-family:
+        "Nunito",
+        Arial,
+        sans-serif;
+
+    font-size: 19px;
+
+    font-weight: 800;
+
+    cursor: pointer;
+
+    box-shadow:
+        0 7px 15px
+        rgba(0, 0, 0, 0.14);
+
+    transition:
+        transform 0.2s ease,
+        box-shadow 0.2s ease,
+        filter 0.2s ease;
+}
+
+
+.result-button:hover {
+    transform:
+        translateY(-3px);
+
+    box-shadow:
+        0 10px 20px
+        rgba(0, 0, 0, 0.18);
+
+    filter:
+        brightness(1.05);
+}
+
+
+.result-button:active {
+    transform:
+        translateY(0)
+        scale(0.98);
+}
+
+
+/* HỌC LẠI */
+
+.retry-button {
+    background:
+        linear-gradient(
+            135deg,
+            #FFB74D,
+            #F57C00
+        );
+}
+
+
+/* CHỌN BÀI KHÁC */
+
+.lesson-list-button {
+    background:
+        linear-gradient(
+            135deg,
+            #42A5F5,
+            #1976D2
+        );
+}
+
+
+/* TRANG CHỦ */
+
+.home-button {
+    background:
+        linear-gradient(
+            135deg,
+            #66BB6A,
+            #43A047
+        );
+}
+
+
+/* ========================================
+   RESPONSIVE
+======================================== */
+/* ========================================
+   XẾP HẠNG SAO
+======================================== */
+
+.star-rating {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    min-height: 80px;
+
+    margin:
+        5px
+        0
+        22px;
+
+    font-size:
+        clamp(
+            48px,
+            7vw,
+            72px
+        );
+
+    letter-spacing: 10px;
+
+    line-height: 1;
+
+    filter:
+        drop-shadow(
+            0 5px 5px
+            rgba(255, 193, 7, 0.3)
+        );
+
+    animation:
+        starsAppear
+        0.8s
+        ease;
+}
+
+
+@keyframes starsAppear {
+
+    0% {
+        opacity: 0;
+
+        transform:
+            scale(0.3)
+            rotate(-8deg);
+    }
+
+    60% {
+        transform:
+            scale(1.15)
+            rotate(3deg);
+    }
+
+    100% {
+        opacity: 1;
+
+        transform:
+            scale(1)
+            rotate(0deg);
+    }
+
+}
+@media (
+    max-width: 700px
+) {
+
+    .result-page {
+        padding:
+            25px
+            15px;
+    }
+
+
+    .result-card {
+        width: 100%;
+
+        padding:
+            28px
+            20px
+            30px;
+    }
+
+
+    .result-trophy {
+        width: 110px;
+        height: 110px;
+    }
+
+
+    .result-buttons {
+        grid-template-columns:
+            1fr;
+    }
+
+
+    .result-button {
+        width: 100%;
+    }
+
+}
+/* ========================================
+   PHẦN THƯỞNG
+======================================== */
+
+.reward-box {
+    width: 100%;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    gap: 20px;
+
+    margin:
+        0
+        0
+        28px;
+
+    padding:
+        18px
+        25px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #FFF8E1,
+            #FFFDE7
+        );
+
+    border:
+        3px solid
+        #FFD54F;
+
+    border-radius:
+        24px;
+
+    box-shadow:
+        0 8px 20px
+        rgba(255, 193, 7, 0.15);
+
+    animation:
+        rewardAppear
+        0.8s
+        ease;
+}
+
+
+.reward-icon {
+    width: 85px;
+    height: 85px;
+
+    flex-shrink: 0;
+
+    object-fit: contain;
+
+    animation:
+        rewardBounce
+        2s
+        ease-in-out
+        infinite;
+}
+
+
+.reward-info {
+    text-align: left;
+}
+
+
+.reward-title {
+    margin:
+        0
+        0
+        5px;
+
+    color:
+        #F57C00;
+
+    font-size:
+        21px;
+
+    font-weight:
+        900;
+}
+
+
+.reward-text {
+    margin: 0;
+
+    color:
+        #555;
+
+    font-size:
+        21px;
+
+    font-weight:
+        800;
+}
+
+
+@keyframes rewardAppear {
+
+    from {
+        opacity: 0;
+
+        transform:
+            translateY(15px)
+            scale(0.96);
+    }
+
+    to {
+        opacity: 1;
+
+        transform:
+            translateY(0)
+            scale(1);
+    }
+
+}
+
+
+@keyframes rewardBounce {
+
+    0%,
+    100% {
+        transform:
+            translateY(0)
+            rotate(0deg);
+    }
+
+    50% {
+        transform:
+            translateY(-6px)
+            rotate(4deg);
+    }
+
+}
+
+
+/* ========================================
+   RESPONSIVE PHẦN THƯỞNG
+======================================== */
+
+@media (max-width: 600px) {
+
+    .reward-box {
+        flex-direction: column;
+
+        gap: 10px;
+
+        padding:
+            18px;
+    }
+
+
+    .reward-info {
+        text-align: center;
+    }
+
+
+    .reward-icon {
+        width: 75px;
+        height: 75px;
+    }
+
+}

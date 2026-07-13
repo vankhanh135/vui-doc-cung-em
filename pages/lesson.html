@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Bài đọc</title>
+
+<link rel="stylesheet" href="../style.css">
+<link rel="stylesheet" href="lesson.css">
+
+</head>
+
+<body>
+<div class="top-nav">
+
+    <a href="../index.html" class="nav-btn home-btn">
+        🏠 Trang chủ
+    </a>
+
+    <button class="nav-btn back-btn" onclick="history.back()">
+        ← Quay lại
+    </button>
+
+</div>
+<div class="lesson-page">
+
+<img
+class="logo"
+src="../assets/logo/logo.png"
+>
+
+<h1 id="lessonTitle">
+    Tôi là học sinh lớp 1
+</h1>
+
+<div class="progress-area">
+
+    <div class="progress-bar">
+
+        <div id="progressFill" class="progress-fill"></div>
+
+    </div>
+
+    <p id="pageNumber">Trang 1 / 7</p>
+
+</div>
+
+<div id="lessonContainer">
+
+</div>
+
+
+<!-- ==========================
+     KHU VỰC BẮT ĐẦU ĐỌC
+========================== -->
+
+<div
+    id="readingStartGuide"
+    class="reading-start-guide"
+>
+
+    <img
+        src="../assets/icons/hand-pointer.png"
+        class="hand-pointer"
+        alt=""
+    >
+
+    <button
+        id="startReadingBtn"
+        class="start-reading-btn"
+        type="button"
+    >
+        ▶ Đọc bài
+    </button>
+
+</div>
+
+
+<div class="lesson-buttons">
+
+<button id="prevBtn">
+
+⬅ Trang trước
+
+</button>
+
+<button id="nextBtn">
+
+Trang sau ➡
+
+</button>
+
+</div>
+
+</div>
+<!-- ==========================
+     POPUP TỪ KHÓ
+========================== -->
+
+<div id="popup" class="popup">
+
+    <div class="popup-content">
+
+        <!-- Nút đóng góc phải -->
+        <button
+            id="closePopup"
+            class="popup-close">
+            ✕
+        </button>
+
+        <!-- Hình minh họa -->
+        <img
+            id="popupImage"
+            alt="Hình minh họa từ vựng">
+
+        <!-- Từ -->
+        <h2 id="popupWord"></h2>
+
+        <!-- Nghĩa -->
+        <p id="popupMeaning"></p>
+
+        <!-- Audio (ẩn) -->
+        <audio id="popupAudio"></audio>
+
+        <!-- Nghe lại -->
+        <button
+            id="playWordAudio"
+            class="popup-action">
+
+            🔊 Nghe lại
+
+        </button>
+
+        <!-- Đóng -->
+        <button
+            id="closePopupBottom"
+            class="popup-action close">
+
+            Đóng
+
+        </button>
+
+    </div>
+
+</div>
+<script src="lesson.js"></script>
+
+</body>
+
+</html>

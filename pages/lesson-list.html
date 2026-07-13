@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+
+    <link
+        rel="preconnect"
+        href="https://fonts.gstatic.com"
+        crossorigin
+    >
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;500;600;700;800;900&display=swap"
+        rel="stylesheet"
+    >
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Danh sách bài học</title>
+
+    <link
+        rel="stylesheet"
+        href="../style.css"
+    >
+
+    <link
+        rel="stylesheet"
+        href="lesson-list.css"
+    >
+
+</head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Danh sách bài học</title>
+
+    <link rel="stylesheet" href="../style.css">
+    <link rel="stylesheet" href="lesson-list.css">
+
+</head>
+
+
+<body>
+
+    <!-- =========================
+         NÚT BẬT / TẮT NHẠC NỀN
+    ========================== -->
+
+    <button
+        id="bgmToggleButton"
+        class="bgm-toggle-button"
+        type="button"
+        aria-label="Tắt nhạc nền"
+        title="Tắt nhạc nền"
+    >
+        <img
+            id="bgmToggleIcon"
+            src="../assets/icons/sound.png"
+            alt="Bật hoặc tắt nhạc nền"
+        >
+    </button>
+
+
+    <!-- =========================
+         THANH ĐIỀU HƯỚNG
+    ========================== -->
+
+    <div class="top-nav">
+
+        <a
+            href="../index.html"
+            class="nav-btn home-btn"
+        >
+            🏠 Trang chủ
+        </a>
+
+        <button
+            class="nav-btn back-btn"
+            onclick="history.back()"
+        >
+            ← Quay lại
+        </button>
+
+    </div>
+
+
+    <!-- =========================
+         DANH SÁCH BÀI HỌC
+    ========================== -->
+
+    <div class="lesson-page">
+
+        <img
+            src="../assets/logo/logo.png"
+            class="logo"
+            alt="Vui đọc cùng em"
+        >
+
+        <h1 id="topicTitle"></h1>
+
+        <p>
+            Chọn bài học em muốn luyện đọc
+        </p>
+
+        <div
+            id="lessonContainer"
+            class="lesson-grid"
+        >
+        </div>
+
+    </div>
+
+
+    <!-- =========================
+         JAVASCRIPT
+    ========================== -->
+
+    <script src="../js/audio-manager.js"></script>
+    <script src="lesson-list.js"></script>
+
+</body>
+
+</html>
