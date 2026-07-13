@@ -16,7 +16,7 @@ function resolvePath(path) {
 
     if (!path) return "";
 
-    // URL đầy đủ thì giữ nguyên
+    // Nếu là URL đầy đủ thì giữ nguyên
     if (
         path.startsWith("http://") ||
         path.startsWith("https://")
@@ -24,12 +24,18 @@ function resolvePath(path) {
         return path;
     }
 
-    // Bỏ tất cả dấu / ở đầu
-    const cleanPath = path.replace(/^\/+/, "");
+    // Chuẩn hóa đường dẫn
+    const cleanPath = path
+        .replace(/^(\.\.\/)+/, "")
+        .replace(/^\.\//, "")
+        .replace(/^\/+/, "");
 
-    // Tạo URL dựa trên địa chỉ trang hiện tại
-    // lesson.html nằm trong thư mục /pages/
-    return new URL("../" + cleanPath, window.location.href).href;
+    // lesson.html nằm trong thư mục pages
+    // ../ sẽ quay về thư mục gốc của project
+    return new URL(
+        "../" + cleanPath,
+        window.location.href
+    ).href;
 }
 // =========================
 // Đọc dữ liệu
