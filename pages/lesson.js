@@ -743,7 +743,7 @@ document.getElementById("nextBtn").onclick = () => {
 
     // Chuyển sang trang Đọc hiểu
     window.location.href =
-        `Quiz.html?topic=${topic}&lesson=${lesson}`;
+        `quiz.html?topic=${topic}&lesson=${lesson}`;
 
 };
 
