@@ -7,7 +7,7 @@
     {
       "page": 1,
       "image": "images/page1.png",
-      "audio": "../../../audio/topic1/toi-la-hoc-sinh-lop-1/pages/page1.mp3",
+      "audio": "audio/topic1/toi-la-hoc-sinh-lop-1/pages/page1.mp3",
       "text": "Tôi tên là Nam, học sinh lớp 1A, Trường Tiểu học Lê Quý Đôn.",
       "timings": [
         { "text": "Tôi", "start": 0.269, "end": 0.615 },
@@ -29,7 +29,7 @@
     {
       "page": 2,
       "image": "images/page2.png",
-      "audio": "../../../audio/topic1/toi-la-hoc-sinh-lop-1/pages/page2.mp3",
+      "audio": "audio/topic1/toi-la-hoc-sinh-lop-1/pages/page2.mp3",
       "text": "Ngày đầu đi học, mặc bộ đồng phục của trường, tôi hãnh diện lắm.",
       "timings": [
         { "text": "Ngày", "start": 0.523, "end": 0.792 },
@@ -51,7 +51,7 @@
     {
       "page": 3,
       "image": "images/page3.png",
-      "audio": "../../../audio/topic1/toi-la-hoc-sinh-lop-1/pages/page3.mp3",
+      "audio": "audio/topic1/toi-la-hoc-sinh-lop-1/pages/page3.mp3",
       "text": "Hồi đầu năm học, tôi mới học chữ cái.",
       "timings": [
         { "text": "Hồi", "start": 0.253, "end": 0.59 },
@@ -68,7 +68,7 @@
     {
       "page": 4,
       "image": "images/page4.png",
-      "audio": "../../../audio/topic1/toi-la-hoc-sinh-lop-1/pages/page4.mp3",
+      "audio": "audio/topic1/toi-la-hoc-sinh-lop-1/pages/page4.mp3",
       "text": "Thế mà bây giờ, tôi đã đọc được truyện tranh.",
       "timings": [
         { "text": "Thế", "start": 0.336, "end": 0.611 },
@@ -86,7 +86,7 @@
     {
       "page": 5,
       "image": "images/page5.png",
-      "audio": "../../../audio/topic1/toi-la-hoc-sinh-lop-1/pages/page5.mp3",
+      "audio": "audio/topic1/toi-la-hoc-sinh-lop-1/pages/page5.mp3",
       "text": "Tôi còn biết làm toán nữa.",
       "timings": [
         { "text": "Tôi", "start": 0.36, "end": 0.579 },
@@ -100,7 +100,7 @@
     {
       "page": 6,
       "image": "images/page6.png",
-      "audio": "../../../audio/topic1/toi-la-hoc-sinh-lop-1/pages/page6.mp3",
+      "audio": "audio/topic1/toi-la-hoc-sinh-lop-1/pages/page6.mp3",
       "text": "Tôi có thêm nhiều bạn mới.",
       "timings": [
         { "text": "Tôi", "start": 0.437, "end": 0.702 },
@@ -114,7 +114,7 @@
     {
       "page": 7,
       "image": "images/page7.png",
-      "audio": "../../../audio/topic1/toi-la-hoc-sinh-lop-1/pages/page7.mp3",
+      "audio": "audio/topic1/toi-la-hoc-sinh-lop-1/pages/page7.mp3",
       "text": "Ai cũng bảo từ khi đi học, tôi chững chạc hẳn lên.",
       "timings": [
         { "text": "Ai", "start": 0.281, "end": 0.542 },
