@@ -8,15 +8,15 @@ let lessonData = null;
 let wordsData = null;
 let readingWasPlaying = false;
 let readingStarted = false;
-// =========================
+// ========================================
 // CHUẨN HÓA ĐƯỜNG DẪN FILE
 // Chạy được cả Live Server và GitHub Pages
-// =========================
+// ========================================
 function resolvePath(path) {
 
     if (!path) return "";
 
-    // Nếu là đường dẫn đầy đủ thì giữ nguyên
+    // URL đầy đủ thì giữ nguyên
     if (
         path.startsWith("http://") ||
         path.startsWith("https://")
@@ -24,14 +24,12 @@ function resolvePath(path) {
         return path;
     }
 
-    // Nếu đường dẫn bắt đầu bằng /
-    // bỏ dấu / đầu tiên và đi từ thư mục gốc của dự án
-    if (path.startsWith("/")) {
-        return "../" + path.substring(1);
-    }
+    // Bỏ tất cả dấu / ở đầu
+    const cleanPath = path.replace(/^\/+/, "");
 
-    // Đường dẫn tương đối thì giữ nguyên
-    return path;
+    // Tạo URL dựa trên địa chỉ trang hiện tại
+    // lesson.html nằm trong thư mục /pages/
+    return new URL("../" + cleanPath, window.location.href).href;
 }
 // =========================
 // Đọc dữ liệu
