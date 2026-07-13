@@ -1,99 +1,163 @@
 // ========================================
 // AUDIO MANAGER - VUI ĐỌC CÙNG EM
 // Quản lý nhạc nền và hiệu ứng âm thanh
+// Chạy được trên Live Server và GitHub Pages
 // ========================================
 
 
 // ========================================
-// 1. DANH SÁCH NHẠC NỀN
+// 1. XÁC ĐỊNH ĐƯỜNG DẪN GỐC CỦA ỨNG DỤNG
+// ========================================
+
+// Nếu đang chạy trên GitHub Pages:
+// https://vankhanh135.github.io/vui-doc-cung-em/
+//
+// thì BASE_PATH sẽ là:
+// /vui-doc-cung-em/
+//
+// Nếu đang chạy trên Live Server:
+// http://127.0.0.1:5500/
+//
+// thì BASE_PATH sẽ là:
+// /
+
+const isGitHubPages =
+    window.location.hostname.endsWith(
+        "github.io"
+    );
+
+
+const BASE_PATH =
+    isGitHubPages
+        ? "/vui-doc-cung-em/"
+        : "/";
+
+
+// ========================================
+// 2. HÀM TẠO ĐƯỜNG DẪN ÂM THANH
+// ========================================
+
+function audioPath(path) {
+
+    return BASE_PATH + path;
+
+}
+
+
+// ========================================
+// 3. DANH SÁCH NHẠC NỀN
+// ========================================
+
+// ========================================
+// 1. ĐƯỜNG DẪN GỐC CỦA ỨNG DỤNG
+// ========================================
+
+// Tự động lấy đúng thư mục dự án trên GitHub Pages
+const BASE_URL =
+    window.location.hostname.includes("github.io")
+        ? "/vui-doc-cung-em"
+        : "";
+
+
+// ========================================
+// 2. DANH SÁCH NHẠC NỀN
 // ========================================
 
 const BGM = {
 
-    home: "/audio/bgm/home.mp3",
+    home: `${BASE_URL}/audio/bgm/home.mp3`,
 
-    topic: "/audio/bgm/topic.mp3",
+    topic: `${BASE_URL}/audio/bgm/topic.mp3`,
 
-    lessonList: "/audio/bgm/lesson-list.mp3",
+    lessonList: `${BASE_URL}/audio/bgm/lesson-list.mp3`,
 
-    game: "/audio/bgm/game.mp3",
+    game: `${BASE_URL}/audio/bgm/game.mp3`,
 
-    profile: "/audio/bgm/profile.mp3",
+    profile: `${BASE_URL}/audio/bgm/profile.mp3`,
 
-    result: "/audio/bgm/result.mp3",
+    result: `${BASE_URL}/audio/bgm/result.mp3`,
 
-    badge: "/audio/bgm/badge.mp3",
+    badge: `${BASE_URL}/audio/bgm/badge.mp3`,
 
-    aiWaiting: "/audio/bgm/ai_waiting.mp3"
+    aiWaiting: `${BASE_URL}/audio/bgm/ai_waiting.mp3`
 
 };
 
 
 // ========================================
-// 2. DANH SÁCH HIỆU ỨNG ÂM THANH
+// 3. DANH SÁCH HIỆU ỨNG ÂM THANH
 // ========================================
 
 const SFX = {
 
-    click: "/audio/sfx/click.mp3",
+    click: `${BASE_URL}/audio/sfx/click.mp3`,
 
-    success: "/audio/sfx/success.mp3",
+    success: `${BASE_URL}/audio/sfx/success.mp3`,
 
-    error: "/audio/sfx/error.mp3",
+    error: `${BASE_URL}/audio/sfx/error.mp3`,
 
-    warning: "/audio/sfx/warning.mp3",
+    warning: `${BASE_URL}/audio/sfx/warning.mp3`,
 
-    popupOpen: "/audio/sfx/popup_open.mp3",
+    popupOpen: `${BASE_URL}/audio/sfx/popup_open.mp3`,
 
-    popupClose: "/audio/sfx/popup_close.mp3",
+    popupClose: `${BASE_URL}/audio/sfx/popup_close.mp3`,
 
-    star: "/audio/sfx/star.mp3",
+    star: `${BASE_URL}/audio/sfx/star.mp3`,
 
-    badge: "/audio/sfx/badge.mp3",
+    badge: `${BASE_URL}/audio/sfx/badge.mp3`,
 
-    reward: "/audio/sfx/reward.mp3",
+    reward: `${BASE_URL}/audio/sfx/reward.mp3`,
 
-    trophy: "/audio/sfx/trophy.mp3",
+    trophy: `${BASE_URL}/audio/sfx/trophy.mp3`,
 
-    unlock: "/audio/sfx/unlock.mp3",
+    unlock: `${BASE_URL}/audio/sfx/unlock.mp3`,
 
-    finish: "/audio/sfx/finish.mp3",
+    finish: `${BASE_URL}/audio/sfx/finish.mp3`,
 
-    aiStart: "/audio/sfx/ai_start.mp3",
+    aiStart: `${BASE_URL}/audio/sfx/ai_start.mp3`,
 
-    aiDone: "/audio/sfx/ai_done.mp3"
+    aiDone: `${BASE_URL}/audio/sfx/ai_done.mp3`
 
 };
 
 
 // ========================================
-// 3. TẠO TRÌNH PHÁT NHẠC NỀN
+// 5. TẠO TRÌNH PHÁT NHẠC NỀN
 // ========================================
 
-const bgmPlayer = new Audio();
+const bgmPlayer =
+    new Audio();
 
-bgmPlayer.loop = true;
 
-bgmPlayer.volume = 0.2;
+bgmPlayer.loop =
+    true;
+
+
+bgmPlayer.volume =
+    0.2;
 
 
 // ========================================
-// 4. ĐỌC TRẠNG THÁI ÂM THANH ĐÃ LƯU
+// 6. ĐỌC TRẠNG THÁI ÂM THANH ĐÃ LƯU
 // ========================================
 
-// Nếu chưa từng lưu thì mặc định bật nhạc nền
-const savedBGMState = localStorage.getItem("bgmEnabled");
+const savedBGMState =
+    localStorage.getItem(
+        "bgmEnabled"
+    );
 
-// Nếu chưa có dữ liệu -> true
-// Nếu đã lưu "false" -> false
+
 let bgmEnabled =
     savedBGMState === null
         ? true
         : savedBGMState === "true";
 
 
-// Nếu chưa từng lưu thì mặc định bật hiệu ứng âm thanh
-const savedSFXState = localStorage.getItem("sfxEnabled");
+const savedSFXState =
+    localStorage.getItem(
+        "sfxEnabled"
+    );
+
 
 let sfxEnabled =
     savedSFXState === null
@@ -101,16 +165,19 @@ let sfxEnabled =
         : savedSFXState === "true";
 
 
-let currentBGM = null;
+let currentBGM =
+    null;
 
 
 // ========================================
-// 5. PHÁT NHẠC NỀN
+// 7. PHÁT NHẠC NỀN
 // ========================================
 
 function playBGM(name) {
 
-    const source = BGM[name];
+    const source =
+        BGM[name];
+
 
     if (!source) {
 
@@ -125,11 +192,11 @@ function playBGM(name) {
 
 
     // Ghi nhớ bài nhạc hiện tại
-    currentBGM = name;
+    currentBGM =
+        name;
 
 
-    // Nếu nhạc nền đang bị tắt
-    // thì không phát
+    // Nếu nhạc nền đang tắt
     if (!bgmEnabled) {
 
         return;
@@ -140,7 +207,7 @@ function playBGM(name) {
     // Nếu đúng bài đang phát
     // thì không phát lại từ đầu
     if (
-        bgmPlayer.src.includes(source) &&
+        bgmPlayer.src === source &&
         !bgmPlayer.paused
     ) {
 
@@ -151,39 +218,49 @@ function playBGM(name) {
 
     bgmPlayer.pause();
 
-    bgmPlayer.currentTime = 0;
 
-    bgmPlayer.src = source;
+    bgmPlayer.currentTime =
+        0;
 
 
-    bgmPlayer.play().catch(() => {
+    bgmPlayer.src =
+        source;
 
-        console.log(
-            "Trình duyệt đang chờ người dùng tương tác để phát nhạc."
-        );
 
-    });
+    bgmPlayer
+        .play()
+        .catch(() => {
+
+            console.log(
+                "Trình duyệt đang chờ người dùng tương tác để phát nhạc."
+            );
+
+        });
 
 }
 
 
 // ========================================
-// 6. DỪNG NHẠC NỀN
+// 8. DỪNG NHẠC NỀN
 // ========================================
 
 function stopBGM() {
 
     bgmPlayer.pause();
 
-    bgmPlayer.currentTime = 0;
 
-    currentBGM = null;
+    bgmPlayer.currentTime =
+        0;
+
+
+    currentBGM =
+        null;
 
 }
 
 
 // ========================================
-// 7. TẠM DỪNG NHẠC NỀN
+// 9. TẠM DỪNG NHẠC NỀN
 // ========================================
 
 function pauseBGM() {
@@ -194,7 +271,7 @@ function pauseBGM() {
 
 
 // ========================================
-// 8. TIẾP TỤC NHẠC NỀN
+// 10. TIẾP TỤC NHẠC NỀN
 // ========================================
 
 function resumeBGM() {
@@ -204,7 +281,9 @@ function resumeBGM() {
         bgmPlayer.src
     ) {
 
-        bgmPlayer.play().catch(() => {});
+        bgmPlayer
+            .play()
+            .catch(() => {});
 
     }
 
@@ -212,14 +291,21 @@ function resumeBGM() {
 
 
 // ========================================
-// 9. PHÁT HIỆU ỨNG ÂM THANH
+// 11. PHÁT HIỆU ỨNG ÂM THANH
 // ========================================
 
 function playSFX(name) {
 
-    if (!sfxEnabled) return;
+    if (!sfxEnabled) {
 
-    const source = SFX[name];
+        return;
+
+    }
+
+
+    const source =
+        SFX[name];
+
 
     if (!source) {
 
@@ -233,25 +319,33 @@ function playSFX(name) {
     }
 
 
-    const sound = new Audio(source);
+    const sound =
+        new Audio(
+            source
+        );
 
-    sound.volume = 0.7;
 
-    sound.play().catch(() => {});
+    sound.volume =
+        0.7;
+
+
+    sound
+        .play()
+        .catch(() => {});
 
 }
 
 
 // ========================================
-// 10. BẬT / TẮT NHẠC NỀN
+// 12. BẬT / TẮT NHẠC NỀN
 // ========================================
 
 function toggleBGM() {
 
-    bgmEnabled = !bgmEnabled;
+    bgmEnabled =
+        !bgmEnabled;
 
 
-    // Lưu trạng thái
     localStorage.setItem(
         "bgmEnabled",
         bgmEnabled
@@ -262,17 +356,25 @@ function toggleBGM() {
 
         pauseBGM();
 
-    } else {
+    }
 
-        // Nếu đã có bài nhạc được chọn
-        // thì phát tiếp
-        if (bgmPlayer.src) {
+    else {
+
+        if (
+            bgmPlayer.src
+        ) {
 
             resumeBGM();
 
-        } else if (currentBGM) {
+        }
 
-            playBGM(currentBGM);
+        else if (
+            currentBGM
+        ) {
+
+            playBGM(
+                currentBGM
+            );
 
         }
 
@@ -285,7 +387,7 @@ function toggleBGM() {
 
 
 // ========================================
-// 11. KIỂM TRA NHẠC NỀN ĐANG BẬT HAY TẮT
+// 13. KIỂM TRA NHẠC NỀN
 // ========================================
 
 function isBGMEnabled() {
@@ -296,15 +398,15 @@ function isBGMEnabled() {
 
 
 // ========================================
-// 12. BẬT / TẮT HIỆU ỨNG ÂM THANH
+// 14. BẬT / TẮT HIỆU ỨNG ÂM THANH
 // ========================================
 
 function toggleSFX() {
 
-    sfxEnabled = !sfxEnabled;
+    sfxEnabled =
+        !sfxEnabled;
 
 
-    // Lưu trạng thái
     localStorage.setItem(
         "sfxEnabled",
         sfxEnabled
@@ -317,7 +419,7 @@ function toggleSFX() {
 
 
 // ========================================
-// 13. KIỂM TRA HIỆU ỨNG ĐANG BẬT HAY TẮT
+// 15. KIỂM TRA HIỆU ỨNG ÂM THANH
 // ========================================
 
 function isSFXEnabled() {
@@ -328,21 +430,27 @@ function isSFXEnabled() {
 
 
 // ========================================
-// 14. THAY ĐỔI ÂM LƯỢNG NHẠC NỀN
+// 16. THAY ĐỔI ÂM LƯỢNG NHẠC NỀN
 // ========================================
 
-function setBGMVolume(volume) {
+function setBGMVolume(
+    volume
+) {
 
-    bgmPlayer.volume = Math.max(
-        0,
-        Math.min(1, volume)
-    );
+    bgmPlayer.volume =
+        Math.max(
+            0,
+            Math.min(
+                1,
+                volume
+            )
+        );
 
 }
 
 
 // ========================================
-// 15. PHÁT NHẠC SAU LẦN TƯƠNG TÁC ĐẦU TIÊN
+// 17. PHÁT NHẠC SAU TƯƠNG TÁC ĐẦU TIÊN
 // ========================================
 
 function enableAudioAfterInteraction() {
@@ -353,40 +461,59 @@ function enableAudioAfterInteraction() {
         bgmPlayer.paused
     ) {
 
-        // Nếu chưa có nguồn nhạc
-        // thì tải bài nhạc hiện tại
-        if (!bgmPlayer.src) {
+        if (
+            !bgmPlayer.src
+        ) {
 
-            bgmPlayer.src = BGM[currentBGM];
+            bgmPlayer.src =
+                BGM[
+                    currentBGM
+                ];
 
         }
 
 
-        bgmPlayer.play().catch(() => {});
+        bgmPlayer
+            .play()
+            .catch(() => {});
 
     }
 
 }
 
 
-// Người dùng chỉ cần tương tác một lần
+// ========================================
+// 18. LẮNG NGHE TƯƠNG TÁC ĐẦU TIÊN
+// ========================================
+
 document.addEventListener(
     "click",
     enableAudioAfterInteraction,
-    { once: true }
+    {
+        once: true
+    }
 );
+
 
 document.addEventListener(
     "touchstart",
     enableAudioAfterInteraction,
-    { once: true }
+    {
+        once: true
+    }
 );
 
 
 // ========================================
-// AUDIO MANAGER ĐÃ SẴN SÀNG
+// 19. KIỂM TRA TRONG CONSOLE
 // ========================================
 
 console.log(
     "Audio Manager đã được tải."
+);
+
+
+console.log(
+    "Đường dẫn gốc của ứng dụng:",
+    BASE_PATH
 );
