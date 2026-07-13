@@ -3,7 +3,7 @@
     {
       "id": 1,
       "question": "Bạn Nam học lớp mấy?",
-      "audio": "../../../audio/topic1/toi-la-hoc-sinh-lop-1/questions/question1.mp3",
+      "audio": "audio/topic1/toi-la-hoc-sinh-lop-1/questions/question1.mp3",
       "options": [
         "Lớp 1A",
         "Lớp 2A",
@@ -14,7 +14,7 @@
     {
       "id": 2,
       "question": "Hồi đầu năm học, Nam học gì?",
-      "audio": "../../../audio/topic1/toi-la-hoc-sinh-lop-1/questions/question2.mp3",
+      "audio": "audio/topic1/toi-la-hoc-sinh-lop-1/questions/question2.mp3",
       "options": [
         "Nam học làm toán.",
         "Nam mới học chữ cái.",
@@ -25,7 +25,7 @@
     {
       "id": 3,
       "question": "Bây giờ, Nam biết làm gì?",
-      "audio": "../../../audio/topic1/toi-la-hoc-sinh-lop-1/questions/question3.mp3",
+      "audio": "audio/topic1/toi-la-hoc-sinh-lop-1/questions/question3.mp3",
       "options": [
         "Đọc truyện tranh và làm toán.",
         "Đá bóng và bơi lội.",
@@ -36,7 +36,7 @@
     {
       "id": 4,
       "question": "Từ khi đi học, Nam có thêm điều gì mới?",
-      "audio": "../../../audio/topic1/toi-la-hoc-sinh-lop-1/questions/question4.mp3",
+      "audio": "audio/topic1/toi-la-hoc-sinh-lop-1/questions/question4.mp3",
       "options": [
         "Có thêm nhiều đồ chơi.",
         "Có thêm nhiều bạn mới.",
@@ -47,7 +47,7 @@
     {
       "id": 5,
       "question": "Mọi người nhận xét Nam như thế nào từ khi đi học?",
-      "audio": "../../../audio/topic1/toi-la-hoc-sinh-lop-1/questions/question5.mp3",
+      "audio": "audio/topic1/toi-la-hoc-sinh-lop-1/questions/question5.mp3",
       "options": [
         "Nam nhỏ hơn trước.",
         "Nam chững chạc hẳn lên.",
