@@ -1,0 +1,135 @@
+{
+  "id": "toi-la-hoc-sinh-lop-1",
+  "title": "Tôi là học sinh lớp 1",
+  "topic": "Tôi và các bạn",
+  "author": "Trung Sơn",
+  "pages": [
+    {
+      "page": 1,
+      "image": "images/page1.png",
+      "audio": "../../../audio/topic1/toi-la-hoc-sinh-lop-1/pages/page1.mp3",
+      "text": "Tôi tên là Nam, học sinh lớp 1A, Trường Tiểu học Lê Quý Đôn.",
+      "timings": [
+        { "text": "Tôi", "start": 0.269, "end": 0.615 },
+        { "text": "tên", "start": 0.615, "end": 0.901 },
+        { "text": "là", "start": 0.901, "end": 1.161 },
+        { "text": "Nam,", "start": 1.161, "end": 1.948 },
+        { "text": "học", "start": 1.948, "end": 2.284 },
+        { "text": "sinh", "start": 2.284, "end": 2.574 },
+        { "text": "lớp", "start": 2.574, "end": 2.86 },
+        { "text": "1A,", "start": 2.86, "end": 3.795 },
+        { "text": "Trường", "start": 3.795, "end": 4.117 },
+        { "text": "Tiểu", "start": 4.117, "end": 4.376 },
+        { "text": "học", "start": 4.376, "end": 4.666 },
+        { "text": "Lê", "start": 4.666, "end": 4.926 },
+        { "text": "Quý", "start": 4.926, "end": 5.191 },
+        { "text": "Đôn.", "start": 5.191, "end": 5.747 }
+      ]
+    },
+    {
+      "page": 2,
+      "image": "images/page2.png",
+      "audio": "../../../audio/topic1/toi-la-hoc-sinh-lop-1/pages/page2.mp3",
+      "text": "Ngày đầu đi học, mặc bộ đồng phục của trường, tôi hãnh diện lắm.",
+      "timings": [
+        { "text": "Ngày", "start": 0.523, "end": 0.792 },
+        { "text": "đầu", "start": 0.792, "end": 0.98 },
+        { "text": "đi", "start": 0.98, "end": 1.284 },
+        { "text": "học,", "start": 1.284, "end": 1.9 },
+        { "text": "mặc", "start": 1.9, "end": 2.119 },
+        { "text": "bộ", "start": 2.119, "end": 2.351 },
+        { "text": "đồng", "start": 2.351, "end": 2.577 },
+        { "text": "phục", "start": 2.577, "end": 2.851 },
+        { "text": "của", "start": 2.851, "end": 3.135 },
+        { "text": "trường,", "start": 3.135, "end": 3.878 },
+        { "text": "tôi", "start": 3.878, "end": 4.18 },
+        { "text": "hãnh", "start": 4.18, "end": 4.441 },
+        { "text": "diện", "start": 4.441, "end": 4.69 },
+        { "text": "lắm.", "start": 4.69, "end": 5.355 }
+      ]
+    },
+    {
+      "page": 3,
+      "image": "images/page3.png",
+      "audio": "../../../audio/topic1/toi-la-hoc-sinh-lop-1/pages/page3.mp3",
+      "text": "Hồi đầu năm học, tôi mới học chữ cái.",
+      "timings": [
+        { "text": "Hồi", "start": 0.253, "end": 0.59 },
+        { "text": "đầu", "start": 0.59, "end": 0.851 },
+        { "text": "năm", "start": 0.851, "end": 1.089 },
+        { "text": "học,", "start": 1.089, "end": 1.721 },
+        { "text": "tôi", "start": 1.721, "end": 1.994 },
+        { "text": "mới", "start": 1.994, "end": 2.239 },
+        { "text": "học", "start": 2.239, "end": 2.463 },
+        { "text": "chữ", "start": 2.463, "end": 2.724 },
+        { "text": "cái.", "start": 2.724, "end": 3.396 }
+      ]
+    },
+    {
+      "page": 4,
+      "image": "images/page4.png",
+      "audio": "../../../audio/topic1/toi-la-hoc-sinh-lop-1/pages/page4.mp3",
+      "text": "Thế mà bây giờ, tôi đã đọc được truyện tranh.",
+      "timings": [
+        { "text": "Thế", "start": 0.336, "end": 0.611 },
+        { "text": "mà", "start": 0.611, "end": 0.866 },
+        { "text": "bây", "start": 0.866, "end": 1.127 },
+        { "text": "giờ,", "start": 1.127, "end": 1.857 },
+        { "text": "tôi", "start": 1.857, "end": 2.144 },
+        { "text": "đã", "start": 2.144, "end": 2.359 },
+        { "text": "đọc", "start": 2.359, "end": 2.601 },
+        { "text": "được", "start": 2.601, "end": 2.845 },
+        { "text": "truyện", "start": 2.845, "end": 3.169 },
+        { "text": "tranh.", "start": 3.169, "end": 3.814 }
+      ]
+    },
+    {
+      "page": 5,
+      "image": "images/page5.png",
+      "audio": "../../../audio/topic1/toi-la-hoc-sinh-lop-1/pages/page5.mp3",
+      "text": "Tôi còn biết làm toán nữa.",
+      "timings": [
+        { "text": "Tôi", "start": 0.36, "end": 0.579 },
+        { "text": "còn", "start": 0.579, "end": 0.837 },
+        { "text": "biết", "start": 0.837, "end": 1.112 },
+        { "text": "làm", "start": 1.112, "end": 1.359 },
+        { "text": "toán", "start": 1.359, "end": 1.578 },
+        { "text": "nữa.", "start": 1.578, "end": 2.194 }
+      ]
+    },
+    {
+      "page": 6,
+      "image": "images/page6.png",
+      "audio": "../../../audio/topic1/toi-la-hoc-sinh-lop-1/pages/page6.mp3",
+      "text": "Tôi có thêm nhiều bạn mới.",
+      "timings": [
+        { "text": "Tôi", "start": 0.437, "end": 0.702 },
+        { "text": "có", "start": 0.702, "end": 0.909 },
+        { "text": "thêm", "start": 0.909, "end": 1.112 },
+        { "text": "nhiều", "start": 1.112, "end": 1.296 },
+        { "text": "bạn", "start": 1.296, "end": 1.53 },
+        { "text": "mới.", "start": 1.53, "end": 2.116 }
+      ]
+    },
+    {
+      "page": 7,
+      "image": "images/page7.png",
+      "audio": "../../../audio/topic1/toi-la-hoc-sinh-lop-1/pages/page7.mp3",
+      "text": "Ai cũng bảo từ khi đi học, tôi chững chạc hẳn lên.",
+      "timings": [
+        { "text": "Ai", "start": 0.281, "end": 0.542 },
+        { "text": "cũng", "start": 0.542, "end": 0.824 },
+        { "text": "bảo", "start": 0.824, "end": 1.14 },
+        { "text": "từ", "start": 1.14, "end": 1.417 },
+        { "text": "khi", "start": 1.417, "end": 1.646 },
+        { "text": "đi", "start": 1.646, "end": 1.862 },
+        { "text": "học,", "start": 1.862, "end": 2.55 },
+        { "text": "tôi", "start": 2.55, "end": 2.86 },
+        { "text": "chững", "start": 2.86, "end": 3.148 },
+        { "text": "chạc", "start": 3.148, "end": 3.387 },
+        { "text": "hẳn", "start": 3.387, "end": 3.631 },
+        { "text": "lên.", "start": 3.631, "end": 4.284 }
+      ]
+    }
+  ]
+}

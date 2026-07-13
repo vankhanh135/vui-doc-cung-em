@@ -1,0 +1,22 @@
+{
+  "words": [
+    {
+      "word": "đồng phục",
+      "meaning": "Quần áo giống nhau mà học sinh mặc khi đến trường.",
+      "image": "words/dong-phuc.png",
+      "audio": "../../../audio/topic1/toi-la-hoc-sinh-lop-1/words/dong-phuc.mp3"
+    },
+    {
+      "word": "hãnh diện",
+      "meaning": "Cảm thấy rất vui và tự hào vì mình làm được điều tốt.",
+      "image": "words/hanh-dien.png",
+      "audio": "../../../audio/topic1/toi-la-hoc-sinh-lop-1/words/hanh-dien.mp3"
+    },
+    {
+      "word": "chững chạc",
+      "meaning": "Trông lớn hơn, biết suy nghĩ và cư xử đúng mực hơn.",
+      "image": "words/chung-chac.png",
+      "audio": "../../../audio/topic1/toi-la-hoc-sinh-lop-1/words/chung-chac.mp3"
+    }
+  ]
+}
