@@ -196,3 +196,12 @@ body{
 .bgm-toggle-button:active {
     transform: scale(0.92);
 }
+/* ==========================
+   VỊ TRÍ NÚT ÂM THANH
+   RIÊNG TRANG CHỦ ĐỀ
+========================== */
+
+.bgm-toggle-button {
+    top: 100px;
+    right: 25px;
+}
