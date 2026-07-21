@@ -1,0 +1,415 @@
+{
+  "version": 2,
+
+  "id": "toi-la-hoc-sinh-lop-1",
+
+  "title": "Tôi là học sinh lớp 1",
+
+  "author": "Trung Sơn",
+
+  "previewAudio": "audio/topic1/toi-la-hoc-sinh-lop-1/preview.mp3",
+
+  "paragraphs": [
+    "Tôi tên là Nam, học sinh lớp 1A, Trường Tiểu học Lê Quý Đôn. Ngày đầu đi học, mặc bộ đồng phục của trường, tôi hãnh diện lắm.",
+    "Hồi đầu năm học, tôi mới học chữ cái. Thế mà bây giờ, tôi đã đọc được truyện tranh. Tôi còn biết làm toán nữa. Tôi có thêm nhiều bạn mới.",
+    "Ai cũng bảo từ khi đi học, tôi chững chạc hẳn lên."
+  ],
+
+  "previewTimings": [
+    {
+      "text": "Tôi",
+      "start": 0.421,
+      "end": 0.702
+    },
+    {
+      "text": "là",
+      "start": 0.702,
+      "end": 0.93
+    },
+    {
+      "text": "học",
+      "start": 0.93,
+      "end": 1.194
+    },
+    {
+      "text": "sinh",
+      "start": 1.194,
+      "end": 1.505
+    },
+    {
+      "text": "lớp",
+      "start": 1.505,
+      "end": 1.799
+    },
+    {
+      "text": "1",
+      "start": 1.799,
+      "end": 3.227
+    },
+    {
+      "text": "Tôi",
+      "start": 3.227,
+      "end": 3.496
+    },
+    {
+      "text": "tên",
+      "start": 3.496,
+      "end": 3.724
+    },
+    {
+      "text": "là",
+      "start": 3.724,
+      "end": 4.039
+    },
+    {
+      "text": "Nam,",
+      "start": 4.039,
+      "end": 4.92
+    },
+    {
+      "text": "học",
+      "start": 4.92,
+      "end": 5.187
+    },
+    {
+      "text": "sinh",
+      "start": 5.187,
+      "end": 5.465
+    },
+    {
+      "text": "lớp",
+      "start": 5.465,
+      "end": 5.79
+    },
+    {
+      "text": "1A,",
+      "start": 5.79,
+      "end": 6.794
+    },
+    {
+      "text": "Trường",
+      "start": 6.794,
+      "end": 7.06
+    },
+    {
+      "text": "Tiểu",
+      "start": 7.06,
+      "end": 7.346
+    },
+    {
+      "text": "học",
+      "start": 7.346,
+      "end": 7.62
+    },
+    {
+      "text": "Lê",
+      "start": 7.62,
+      "end": 7.91
+    },
+    {
+      "text": "Quý",
+      "start": 7.91,
+      "end": 8.206
+    },
+    {
+      "text": "Đôn.",
+      "start": 8.206,
+      "end": 9.106
+    },
+    {
+      "text": "Ngày",
+      "start": 9.106,
+      "end": 9.341
+    },
+    {
+      "text": "đầu",
+      "start": 9.341,
+      "end": 9.601
+    },
+    {
+      "text": "đi",
+      "start": 9.601,
+      "end": 9.834
+    },
+    {
+      "text": "học,",
+      "start": 9.834,
+      "end": 10.507
+    },
+    {
+      "text": "mặc",
+      "start": 10.507,
+      "end": 10.764
+    },
+    {
+      "text": "bộ",
+      "start": 10.764,
+      "end": 11.03
+    },
+    {
+      "text": "đồng",
+      "start": 11.03,
+      "end": 11.336
+    },
+    {
+      "text": "phục",
+      "start": 11.336,
+      "end": 11.59
+    },
+    {
+      "text": "của",
+      "start": 11.59,
+      "end": 11.919
+    },
+    {
+      "text": "trường,",
+      "start": 11.919,
+      "end": 12.666
+    },
+    {
+      "text": "tôi",
+      "start": 12.666,
+      "end": 12.892
+    },
+    {
+      "text": "hãnh",
+      "start": 12.892,
+      "end": 13.151
+    },
+    {
+      "text": "diện",
+      "start": 13.151,
+      "end": 13.429
+    },
+    {
+      "text": "lắm.",
+      "start": 13.429,
+      "end": 14.7
+    },
+    {
+      "text": "Hồi",
+      "start": 14.7,
+      "end": 15.01
+    },
+    {
+      "text": "đầu",
+      "start": 15.01,
+      "end": 15.263
+    },
+    {
+      "text": "năm",
+      "start": 15.263,
+      "end": 15.616
+    },
+    {
+      "text": "học,",
+      "start": 15.616,
+      "end": 16.311
+    },
+    {
+      "text": "tôi",
+      "start": 16.311,
+      "end": 16.567
+    },
+    {
+      "text": "mới",
+      "start": 16.567,
+      "end": 16.839
+    },
+    {
+      "text": "học",
+      "start": 16.839,
+      "end": 17.103
+    },
+    {
+      "text": "chữ",
+      "start": 17.103,
+      "end": 17.441
+    },
+    {
+      "text": "cái.",
+      "start": 17.441,
+      "end": 18.252
+    },
+    {
+      "text": "Thế",
+      "start": 18.252,
+      "end": 18.47
+    },
+    {
+      "text": "mà",
+      "start": 18.47,
+      "end": 18.714
+    },
+    {
+      "text": "bây",
+      "start": 18.714,
+      "end": 18.949
+    },
+    {
+      "text": "giờ,",
+      "start": 18.949,
+      "end": 19.734
+    },
+    {
+      "text": "tôi",
+      "start": 19.734,
+      "end": 19.991
+    },
+    {
+      "text": "đã",
+      "start": 19.991,
+      "end": 20.267
+    },
+    {
+      "text": "đọc",
+      "start": 20.267,
+      "end": 20.515
+    },
+    {
+      "text": "được",
+      "start": 20.515,
+      "end": 20.782
+    },
+    {
+      "text": "truyện",
+      "start": 20.782,
+      "end": 21.086
+    },
+    {
+      "text": "tranh.",
+      "start": 21.086,
+      "end": 21.916
+    },
+    {
+      "text": "Tôi",
+      "start": 21.916,
+      "end": 22.186
+    },
+    {
+      "text": "còn",
+      "start": 22.186,
+      "end": 22.414
+    },
+    {
+      "text": "biết",
+      "start": 22.414,
+      "end": 22.696
+    },
+    {
+      "text": "làm",
+      "start": 22.696,
+      "end": 22.963
+    },
+    {
+      "text": "toán",
+      "start": 22.963,
+      "end": 23.467
+    },
+    {
+      "text": "nữa.",
+      "start": 23.467,
+      "end": 24.186
+    },
+    {
+      "text": "Tôi",
+      "start": 24.186,
+      "end": 24.405
+    },
+    {
+      "text": "có",
+      "start": 24.405,
+      "end": 24.683
+    },
+    {
+      "text": "thêm",
+      "start": 24.683,
+      "end": 24.94
+    },
+    {
+      "text": "nhiều",
+      "start": 24.94,
+      "end": 25.227
+    },
+    {
+      "text": "bạn",
+      "start": 25.227,
+      "end": 25.53
+    },
+    {
+      "text": "mới.",
+      "start": 25.53,
+      "end": 26.377
+    },
+    {
+      "text": "Ai",
+      "start": 26.377,
+      "end": 26.945
+    },
+    {
+      "text": "cũng",
+      "start": 26.945,
+      "end": 27.402
+    },
+    {
+      "text": "bảo",
+      "start": 27.402,
+      "end": 27.816
+    },
+    {
+      "text": "từ",
+      "start": 27.816,
+      "end": 28.074
+    },
+    {
+      "text": "khi",
+      "start": 28.074,
+      "end": 28.351
+    },
+    {
+      "text": "đi",
+      "start": 28.351,
+      "end": 28.677
+    },
+    {
+      "text": "học,",
+      "start": 28.677,
+      "end": 29.284
+    },
+    {
+      "text": "tôi",
+      "start": 29.284,
+      "end": 29.535
+    },
+    {
+      "text": "chững",
+      "start": 29.535,
+      "end": 29.824
+    },
+    {
+      "text": "chạc",
+      "start": 29.824,
+      "end": 30.127
+    },
+    {
+      "text": "hẳn",
+      "start": 30.127,
+      "end": 30.38
+    },
+    {
+      "text": "lên.",
+      "start": 30.38,
+      "end": 31.189
+    },
+    {
+      "text": "Trung",
+      "start": 31.189,
+      "end": 31.555
+    },
+    {
+      "text": "Sơn",
+      "start": 31.555,
+      "end": 32.261
+    }
+  ]
+}
