@@ -1,7 +1,13 @@
 {
+  "version": 2,
+  "lessonId": "toi-la-hoc-sinh-lop-1",
+  "title": "Đọc hiểu",
+
   "questions": [
+
     {
       "id": 1,
+      "type": "multiple_choice",
       "question": "Bạn Nam học lớp mấy?",
       "audio": "../audio/topic1/toi-la-hoc-sinh-lop-1/questions/question1.mp3",
       "options": [
@@ -11,49 +17,51 @@
       ],
       "answer": 0
     },
+
     {
       "id": 2,
-      "question": "Hồi đầu năm học, Nam học gì?",
+      "type": "true_false",
+      "question": "Nam mới học làm toán vào đầu năm học.",
       "audio": "../audio/topic1/toi-la-hoc-sinh-lop-1/questions/question2.mp3",
-      "options": [
-        "Nam học làm toán.",
-        "Nam mới học chữ cái.",
-        "Nam học viết văn."
-      ],
-      "answer": 1
+      "answer": false
     },
+
     {
       "id": 3,
-      "question": "Bây giờ, Nam biết làm gì?",
+      "type": "matching",
+      "question": "Nối đúng.",
       "audio": "../audio/topic1/toi-la-hoc-sinh-lop-1/questions/question3.mp3",
-      "options": [
-        "Đọc truyện tranh và làm toán.",
-        "Đá bóng và bơi lội.",
-        "Chơi đàn và hát."
+
+      "left": [
+        "Nam",
+        "Nam học trường",
+        "Đầu năm học, Nam"
       ],
-      "answer": 0
+
+      "right": [
+        "Tiểu học Lê Quý Đôn",
+        "mới học chữ cái",
+        "là học sinh lớp 1A"
+      ],
+
+      "answer": [2,0,1]
     },
     {
-      "id": 4,
-      "question": "Từ khi đi học, Nam có thêm điều gì mới?",
-      "audio": "../audio/topic1/toi-la-hoc-sinh-lop-1/questions/question4.mp3",
-      "options": [
-        "Có thêm nhiều đồ chơi.",
-        "Có thêm nhiều bạn mới.",
-        "Có thêm nhiều quyển sách."
+      "id":4,
+      "type":"fill_blank",
+      "question":"Điền từ còn thiếu.",
+      "audio":"../audio/topic1/toi-la-hoc-sinh-lop-1/questions/question5.mp3",
+
+      "sentence":"Từ khi đi học, Nam ____ hẳn lên.",
+
+      "choices":[
+          "chững chạc",
+          "nhanh nhẹn",
+          "vui vẻ"
       ],
-      "answer": 1
-    },
-    {
-      "id": 5,
-      "question": "Mọi người nhận xét Nam như thế nào từ khi đi học?",
-      "audio": "../audio/topic1/toi-la-hoc-sinh-lop-1/questions/question5.mp3",
-      "options": [
-        "Nam nhỏ hơn trước.",
-        "Nam chững chạc hẳn lên.",
-        "Nam nghịch hơn trước."
-      ],
-      "answer": 1
+
+      "answer":"chững chạc"
     }
+
   ]
 }
