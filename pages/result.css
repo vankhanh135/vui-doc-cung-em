@@ -712,3 +712,384 @@ body {
     }
 
 }
+/* =========================================================
+   TỐI ƯU TRANG KẾT QUẢ TRÊN ĐIỆN THOẠI
+========================================================= */
+
+@media (max-width: 480px) {
+
+    body {
+        overflow-x: hidden;
+    }
+
+    /* Toàn bộ trang */
+    .result-page {
+        min-height: 100vh;
+
+        justify-content: flex-start;
+
+        padding:
+            14px
+            12px
+            24px;
+    }
+
+
+    /* Logo */
+    .result-logo {
+        width: 105px;
+        max-width: none;
+
+        margin-bottom: 8px;
+    }
+
+
+    /* Khung kết quả chính */
+    .result-card {
+        width: 100%;
+        max-width: 390px;
+
+        padding:
+            18px
+            18px
+            22px;
+
+        border-radius: 26px;
+    }
+
+
+    /* Cúp */
+    .result-trophy {
+        width: 62px;
+        height: 62px;
+
+        margin-bottom: 2px;
+    }
+
+
+    /* Tiêu đề */
+    .result-card h1 {
+        margin:
+            4px
+            0
+            6px;
+
+        font-size: 27px;
+        line-height: 1.15;
+    }
+
+
+    /* Lời khen */
+    .result-message {
+        margin:
+            0
+            0
+            10px;
+
+        font-size: 17px;
+        line-height: 1.35;
+    }
+
+
+    /* Ba ngôi sao */
+    .star-rating {
+        min-height: 48px;
+
+        margin:
+            2px
+            0
+            12px;
+
+        font-size: 38px;
+
+        letter-spacing: 4px;
+    }
+
+
+    /* Khung điểm */
+    .score-box {
+        padding:
+            14px
+            12px;
+
+        margin-bottom: 12px;
+
+        border-radius: 20px;
+    }
+
+
+    /* Chữ "Kết quả của em" */
+    .score-label {
+        margin:
+            0
+            0
+            2px;
+
+        font-size: 19px;
+    }
+
+
+    /* Điểm 5 / 5 */
+    .score-number {
+        gap: 7px;
+
+        margin:
+            2px
+            0;
+
+        font-size: 44px;
+    }
+
+
+    /* Chú thích điểm */
+    .score-description {
+        margin:
+            4px
+            0
+            0;
+
+        font-size: 16px;
+    }
+
+
+    /* Số lần thử lại */
+    .wrong-attempts {
+        margin:
+            0
+            0
+            12px;
+
+        font-size: 17px;
+    }
+
+
+    .wrong-attempts strong {
+        font-size: 21px;
+    }
+
+
+    /* Phần thưởng */
+    .reward-box {
+        flex-direction: row;
+
+        gap: 12px;
+
+        margin:
+            0
+            0
+            14px;
+
+        padding:
+            12px
+            14px;
+
+        border-radius: 20px;
+    }
+
+
+    /* Icon phần thưởng */
+    .reward-icon {
+        width: 52px;
+        height: 52px;
+
+        margin: 0;
+    }
+
+
+    /* Nội dung phần thưởng */
+    .reward-info {
+        text-align: left;
+    }
+
+
+    .reward-title {
+        margin:
+            0
+            0
+            3px;
+
+        font-size: 16px;
+    }
+
+
+    .reward-text {
+        margin: 0;
+
+        font-size: 16px;
+        line-height: 1.3;
+    }
+
+
+    /* Ba nút cuối trang */
+    .result-buttons {
+        grid-template-columns: 1fr;
+
+        gap: 9px;
+
+        margin-top: 0;
+    }
+
+
+    .result-button {
+        width: 100%;
+
+        min-height: 48px;
+
+        padding:
+            10px
+            14px;
+
+        border-radius: 16px;
+
+        font-size: 17px;
+    }
+
+}
+
+
+/* =========================================================
+   MÀN HÌNH ĐIỆN THOẠI THẤP
+   Ví dụ: 397 x 622
+========================================================= */
+
+@media (max-width: 480px) and (max-height: 700px) {
+
+    .result-page {
+        padding:
+            8px
+            10px
+            18px;
+    }
+
+
+    .result-logo {
+        width: 88px;
+
+        margin-bottom: 5px;
+    }
+
+
+    .result-card {
+        padding:
+            14px
+            16px
+            18px;
+    }
+
+
+    .result-trophy {
+        width: 52px;
+        height: 52px;
+    }
+
+
+    .result-card h1 {
+        margin:
+            2px
+            0
+            5px;
+
+        font-size: 24px;
+    }
+
+
+    .result-message {
+        margin-bottom: 7px;
+
+        font-size: 15px;
+    }
+
+
+    .star-rating {
+        min-height: 40px;
+
+        margin:
+            0
+            0
+            8px;
+
+        font-size: 32px;
+
+        letter-spacing: 2px;
+    }
+
+
+    .score-box {
+        padding:
+            10px
+            10px;
+
+        margin-bottom: 9px;
+    }
+
+
+    .score-label {
+        font-size: 17px;
+    }
+
+
+    .score-number {
+        font-size: 38px;
+    }
+
+
+    .score-description {
+        font-size: 14px;
+    }
+
+
+    .wrong-attempts {
+        margin-bottom: 9px;
+
+        font-size: 15px;
+    }
+
+
+    .wrong-attempts strong {
+        font-size: 19px;
+    }
+
+
+    .reward-box {
+        gap: 9px;
+
+        margin-bottom: 10px;
+
+        padding:
+            9px
+            11px;
+    }
+
+
+    .reward-icon {
+        width: 44px;
+        height: 44px;
+    }
+
+
+    .reward-title {
+        font-size: 14px;
+    }
+
+
+    .reward-text {
+        font-size: 14px;
+    }
+
+
+    .result-buttons {
+        gap: 7px;
+    }
+
+
+    .result-button {
+        min-height: 43px;
+
+        padding:
+            8px
+            12px;
+
+        font-size: 15px;
+    }
+
+}

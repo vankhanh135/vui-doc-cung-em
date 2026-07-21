@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Chuẩn bị bài học</title>
+
+    <link
+        rel="icon"
+        type="image/png"
+        href="../assets/logo/logo.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../style.css">
+    <link rel="stylesheet" href="preview.css">
+
+</head>
+
+<body>
+
+    <!-- THANH ĐIỀU HƯỚNG -->
+
+    <div class="top-nav">
+
+        <a href="../index.html"
+           class="nav-btn home-btn">
+
+            🏠 Trang chủ
+
+        </a>
+
+        <button
+            class="nav-btn back-btn"
+            onclick="history.back()">
+
+            ← Quay lại
+
+        </button>
+        <button
+            id="bgmToggleButton"
+            class="bgm-toggle-button"
+            type="button"
+            aria-label="Tắt nhạc nền"
+            title="Tắt nhạc nền">
+
+            <img
+                id="bgmToggleIcon"
+                src="../assets/icons/sound.png"
+                alt="Âm thanh">
+
+        </button>
+
+    </div>
+
+
+    <!-- TRANG PREVIEW -->
+
+    <!-- ========================= -->
+<!-- PREVIEW 2.0 -->
+<!-- ========================= -->
+
+<div class="preview-page">
+
+    <!-- Logo -->
+    <img
+        class="logo"
+        src="../assets/logo/logo.png"
+        alt="Vui đọc cùng em">
+
+    <!-- Tiêu đề -->
+    <h1 id="lessonTitle">
+        Đang tải...
+    </h1>
+
+    <!-- Hình minh họa -->
+    <div
+        id="previewImageBox"
+        class="preview-image">
+
+        <img
+            id="lessonImage"
+            src=""
+            alt="Bài đọc">
+
+    </div>
+
+    <!-- NÚT 1 -->
+    <button
+        id="prepareBtn"
+        class="preview-btn">
+
+        🎧 Chuẩn bị nghe đọc mẫu
+
+    </button>
+    <div
+        id="readingSection"
+        class="reading-section hidden">
+
+        <!-- Tiêu đề khối -->
+        <div class="reading-header">
+
+            <div class="reading-label">
+
+                📖 BÀI ĐỌC
+
+            </div>
+
+            <p class="reading-guide">
+
+                Em hãy nghe đọc mẫu toàn bộ bài đọc nhé!
+
+            </p>
+
+            <h2
+                id="previewLessonTitle"
+                class="reading-title">
+
+            </h2>
+
+        </div>
+
+        <!-- Nội dung -->
+
+        <div
+            id="previewText"
+            class="preview-reading-text">
+
+        </div>
+
+        <!-- Nút nghe -->
+
+        <button
+            id="playReadingBtn"
+            class="preview-btn">
+
+            🔊 NGHE ĐỌC MẪU
+
+        </button>
+
+    </div>
+
+    <!-- Trạng thái -->
+    <p
+        id="previewStatus"
+        class="preview-status">
+
+    </p>
+
+    <!-- NÚT 3 -->
+    <div
+        id="finishButtons"
+        class="finish-buttons hidden">
+
+        <button
+            id="replayBtn"
+            class="preview-btn">
+
+            🔊 Nghe lại
+
+        </button>
+
+        <button
+            id="startLessonBtn"
+            class="preview-btn start">
+
+            📖 Bắt đầu luyện đọc
+
+        </button>
+
+    </div>
+
+    <!-- Audio -->
+    <audio
+        id="previewAudio"
+        preload="metadata">
+    </audio>
+
+</div>
+    <script src="../js/audio-manager.js"></script>
+    <script src="preview.js"></script>
+    
+
+</body>
+
+</html>

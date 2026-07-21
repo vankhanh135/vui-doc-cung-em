@@ -2,7 +2,22 @@ const params = new URLSearchParams(window.location.search);
 
 const topic = params.get("topic") || 1;
 const lesson = params.get("lesson") || 1;
+// ========================================
+// THÔNG TIN THƯ MỤC BÀI HỌC
+// ========================================
 
+const lessonDataMap = {
+
+    "1-1":"toi-la-hoc-sinh-lop-1",
+    "1-2":"doi-tai-xau-xi",
+    "1-3":"ban-cua-gio",
+    "1-4":"giai-thuong-tinh-ban",
+    "1-5":"sinh-nhat-cua-voi-con"
+
+};
+
+const lessonFolder =
+    lessonDataMap[`${topic}-${lesson}`];
 let currentPage = 0;
 let lessonData = null;
 let wordsData = null;
@@ -43,7 +58,7 @@ function resolvePath(path) {
 async function loadLesson() {
 
     const lessonResponse = await fetch(
-        `../assets/lessons/topic${topic}/toi-la-hoc-sinh-lop-1/lesson.json`
+        `../assets/lessons/topic${topic}/${lessonFolder}/lesson.json`
     );
     lessonData = await lessonResponse.json();
 
@@ -206,7 +221,7 @@ for (let i = 0; i < arr.length; i++) {
             ${html}
         </p>
 
-        <audio id="pageAudio" controls>
+        <audio id="pageAudio">
             <source src="${resolvePath(page.audio)}" type="audio/mpeg">
         </audio>
     `;
@@ -242,7 +257,7 @@ for (let i = 0; i < arr.length; i++) {
 
         // Đổi nội dung nút
         nextBtn.innerHTML =
-            "Tiếp tục: Đọc hiểu ➡";
+            "Tiếp tục: Luyện đọc ➡";
 
         // Thêm class để làm nổi bật
         nextBtn.classList.add(
@@ -297,6 +312,59 @@ for (let i = 0; i < arr.length; i++) {
 
     }
 }
+// ========================================
+// NÚT NGHE LẠI TRANG HIỆN TẠI
+// ========================================
+
+const replayReadingBtn =
+    document.getElementById("replayReadingBtn");
+
+
+replayReadingBtn?.addEventListener("click", () => {
+
+    // Lấy audio của trang hiện tại
+    const pageAudio =
+        document.getElementById("pageAudio");
+
+
+    if (!pageAudio) {
+        return;
+    }
+
+
+    // Đánh dấu học sinh đã bắt đầu nghe bài đọc
+    readingStarted = true;
+
+
+    // Dừng âm thanh từ khó nếu đang phát
+    const popupAudio =
+        document.getElementById("popupAudio");
+
+
+    if (popupAudio) {
+
+        popupAudio.pause();
+
+        popupAudio.currentTime = 0;
+
+    }
+
+
+    // Phát lại bài đọc từ đầu
+    pageAudio.pause();
+
+    pageAudio.currentTime = 0;
+
+    pageAudio.play().catch(error => {
+
+        console.error(
+            "Không thể phát lại bài đọc:",
+            error
+        );
+
+    });
+
+});
 // =========================
 // TÔ SÁNG CHỮ THEO TIMESTAMP
 // =========================
@@ -743,7 +811,7 @@ document.getElementById("nextBtn").onclick = () => {
 
     // Chuyển sang trang Đọc hiểu
     window.location.href =
-        `quiz.html?topic=${topic}&lesson=${lesson}`;
+        `ai-reading.html?topic=${topic}&lesson=${lesson}`;
 
 };
 

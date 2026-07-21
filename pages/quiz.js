@@ -28,7 +28,14 @@ let answerIsCorrect = false;
 
 let questionAudio = null;
 
+let fillAnswer = "";
+// =========================
+// BIẾN CHO MATCHING
+// =========================
 
+let matchingAnswers = {};
+
+let selectedLeft = null;
 // ========================================
 // BIẾN KẾT QUẢ
 // ========================================
@@ -133,124 +140,570 @@ async function loadQuestions() {
 
 }
 
-
 // ========================================
 // HIỂN THỊ CÂU HỎI
 // ========================================
 
 function showQuestion() {
 
-    const q =
-        questions[currentQuestion];
+    const q = questions[currentQuestion];
 
-
-    // Đặt lại trạng thái câu hỏi
-    selectedAnswer = -1;
-
+    selectedAnswer = null;
     answerIsCorrect = false;
-    // Câu mới chưa có lần trả lời sai nào
     currentQuestionHadWrongAnswer = false;
 
-    // Hiển thị số câu
-    document
-        .getElementById("questionNumber")
-        .innerText =
+    document.getElementById("questionNumber").innerText =
         `Câu ${currentQuestion + 1} / ${questions.length}`;
 
-
-    // Hiển thị nội dung câu hỏi
-    document
-        .getElementById("questionText")
-        .innerText =
+    document.getElementById("questionText").innerText =
         q.question;
-    // ========================================
-    // CHUẨN BỊ ÂM THANH CÂU HỎI
-    // ========================================
 
-    // Dừng âm thanh câu hỏi cũ nếu đang phát
+    // ===============================
+    // ÂM THANH
+    // ===============================
+
     if (questionAudio) {
 
         questionAudio.pause();
-
         questionAudio.currentTime = 0;
 
     }
 
+    questionAudio = new Audio(q.audio);
 
-    // Tạo âm thanh cho câu hỏi hiện tại
-    questionAudio =
-        new Audio(q.audio);
+    // ===============================
+    // TẠO GIAO DIỆN
+    // ===============================
 
-    // Tạo các đáp án
     let html = "";
 
+    switch (q.type) {
 
-    q.options.forEach(
-        (option, index) => {
+        // =====================================
+        // TRẮC NGHIỆM
+        // =====================================
 
-            html += `
+        case "multiple_choice":
+
+            q.options.forEach((option, index) => {
+
+                html += `
+                    <div
+                        class="answer"
+                        data-index="${index}">
+
+                        ${option}
+
+                    </div>
+                `;
+
+            });
+
+            break;
+
+
+        // =====================================
+        // ĐÚNG / SAI
+        // =====================================
+
+        case "true_false":
+
+            html = `
 
                 <div
                     class="answer"
-                    data-index="${index}"
-                >
+                    data-value="true">
 
-                    ${option}
+                    Đúng
+
+                </div>
+
+                <div
+                    class="answer"
+                    data-value="false">
+
+                    Sai
 
                 </div>
 
             `;
 
-        }
-    );
+            break;
 
+
+// =====================================
+// NỐI
+// =====================================
+case "matching":
+
+    matchingAnswers = {};
+    selectedLeft = null;
+
+    html = `
+
+        <div class="matching-container">
+
+            <div class="matching-left">
+
+                ${q.left.map((item,index)=>`
+
+                    <div
+                        class="match-left"
+                        data-index="${index}">
+
+                        ${item}
+
+                    </div>
+
+                `).join("")}
+
+            </div>
+
+            <div class="matching-right">
+
+                ${q.right.map((item,index)=>`
+
+                    <div
+                        class="match-right"
+                        data-index="${index}">
+
+                        ${item}
+
+                    </div>
+
+                `).join("")}
+
+            </div>
+
+        </div>
+
+    `;
+
+break;
+
+
+        // =====================================
+        // KÉO THẢ
+        // =====================================
+
+        case "drag_drop":
+
+            html = `
+
+                <div class="drag-container">
+
+                    <div class="drag-items">
+
+                        ${q.items.map((item, index) => `
+
+                            <div
+                                class="drag-item"
+                                draggable="true"
+                                data-index="${index}">
+
+                                ${item.text}
+
+                            </div>
+
+                        `).join("")}
+
+                    </div>
+
+                    <div class="drag-targets">
+
+                        ${q.targets.map((target, index) => `
+
+                            <div
+                                class="drop-zone"
+                                data-index="${index}">
+
+                                ${target}
+
+                            </div>
+
+                        `).join("")}
+
+                    </div>
+
+                </div>
+
+            `;
+
+            break;
+
+// =====================================
+// ĐIỀN TỪ (KÉO THẢ)
+// =====================================
+
+case "fill_blank":
+
+    html = `
+
+        <div class="fill-container">
+
+            <div class="fill-sentence">
+
+                ${q.sentence.replace(
+
+                    "____",
+
+                    `<div
+                        class="blank-box"
+                        id="blankBox">
+                    </div>`
+
+                )}
+
+            </div>
+
+            <div class="fill-choices">
+
+                ${q.choices.map((word,index)=>`
+
+                    <div
+                    class="fill-choice"
+                    data-index="${index}"
+                    data-word="${word}"
+                    draggable="true">
+
+                    ${word}
+
+                </div>
+
+                `).join("")}
+
+            </div>
+
+        </div>
+
+    `;
+
+    break;
+
+    }
+
+    document.getElementById("answers").innerHTML = html;
+
+    // ===============================
+    // GẮN SỰ KIỆN
+    // ===============================
+
+    if (
+        q.type === "multiple_choice" ||
+        q.type === "true_false"
+    ) 
+    {
+
+        document
+            .querySelectorAll(".answer")
+            .forEach(item => {
+
+                item.onclick = () => {
+
+                    document
+                        .querySelectorAll(".answer")
+                        .forEach(answer => {
+
+                            answer.classList.remove("selected");
+
+                        });
+
+                    item.classList.add("selected");
+
+                    if (q.type === "multiple_choice") {
+
+                        selectedAnswer =
+                            Number(item.dataset.index);
+
+                    }
+
+                    else {
+
+                        selectedAnswer =
+                            item.dataset.value === "true";
+
+                    }
+
+                    playSound("click.mp3");
+
+                };
+
+            });
+
+    }
+// =========================
+// MATCHING
+// =========================
+
+if (q.type === "matching") {
+
+    matchingAnswers = {};
+    selectedLeft = null;
+
+    // ---------------------
+    // Chọn bên trái
+    // ---------------------
 
     document
-        .getElementById("answers")
-        .innerHTML =
-        html;
+        .querySelectorAll(".match-left")
+        .forEach(left => {
 
+            left.onclick = () => {
 
-    // ========================================
-    // CHỌN ĐÁP ÁN
-    // ========================================
-
-    document
-        .querySelectorAll(".answer")
-        .forEach(item => {
-
-            item.onclick = () => {
-
-                // Xóa lựa chọn cũ
                 document
-                    .querySelectorAll(".answer")
-                    .forEach(answer => {
+                    .querySelectorAll(".match-left")
+                    .forEach(x => x.classList.remove("selected"));
 
-                        answer
-                            .classList
-                            .remove("selected");
+                left.classList.add("selected");
 
-                    });
+                selectedLeft =
+                    Number(left.dataset.index);
 
-
-                // Chọn đáp án mới
-                item
-                    .classList
-                    .add("selected");
-
-
-                selectedAnswer =
-                    Number(
-                        item.dataset.index
-                    );
-                // Phát âm thanh khi chọn đáp án
                 playSound("click.mp3");
+
+            };
+
+        });
+
+    // ---------------------
+    // Chọn bên phải
+    // ---------------------
+
+    document
+        .querySelectorAll(".match-right")
+        .forEach(right => {
+
+            right.onclick = () => {
+
+                if (selectedLeft === null) {
+
+                    playSound("warning.mp3");
+
+                    return;
+
+                }
+
+                const rightIndex =
+                    Number(right.dataset.index);
+
+                // Nếu bên phải đã được nối
+                // thì bỏ nối cũ
+                for (const key in matchingAnswers) {
+
+                    if (matchingAnswers[key] === rightIndex) {
+
+                        delete matchingAnswers[key];
+
+                    }
+
+                }
+
+                // Lưu đáp án
+                matchingAnswers[selectedLeft] =
+                    rightIndex;
+
+                // Bỏ chọn tất cả
+                document
+                    const leftBox = document.querySelector(
+                        `.match-left[data-index="${selectedLeft}"]`
+                    );
+
+                    leftBox.classList.remove("selected");
+                    leftBox.classList.add("matched");
+
+                    right.classList.add("matched");
+
+                    selectedLeft = null;
+
+                playSound("click.mp3");
+
             };
 
         });
 
 }
+// =========================
+// FILL BLANK
+// =========================
 
+if (q.type === "fill_blank") {
+
+    const blankBox =
+        document.getElementById("blankBox");
+
+    document
+        .querySelectorAll(".fill-choice")
+        .forEach(item => {
+
+            // --------------------
+            // Desktop Drag
+            // --------------------
+
+            item.draggable = true;
+
+            item.addEventListener("dragstart", e => {
+
+                e.dataTransfer.setData(
+                    "text",
+                    item.dataset.word
+                );
+
+                item.classList.add("dragging");
+
+                playSound("click.mp3");
+
+            });
+
+            item.addEventListener("dragend", () => {
+
+                item.classList.remove("dragging");
+
+            });
+
+            // --------------------
+            // Mobile Touch Drag
+            // --------------------
+
+            let clone = null;
+
+            item.addEventListener("touchstart", e => {
+
+                clone = item.cloneNode(true);
+
+                clone.style.position = "fixed";
+                clone.style.zIndex = "9999";
+                clone.style.pointerEvents = "none";
+                clone.style.opacity = "0.85";
+                clone.style.transform = "scale(1.05)";
+
+                document.body.appendChild(clone);
+
+            });
+
+            item.addEventListener("touchmove", e => {
+
+                if (!clone) return;
+
+                const touch = e.touches[0];
+
+                clone.style.left =
+                    (touch.clientX - clone.offsetWidth / 2) + "px";
+
+                clone.style.top =
+                    (touch.clientY - clone.offsetHeight / 2) + "px";
+
+            });
+
+            item.addEventListener("touchend", e => {
+
+                if (!clone) return;
+
+                const touch =
+                    e.changedTouches[0];
+
+                const rect =
+                    blankBox.getBoundingClientRect();
+
+                const inside =
+
+                    touch.clientX >= rect.left &&
+                    touch.clientX <= rect.right &&
+                    touch.clientY >= rect.top &&
+                    touch.clientY <= rect.bottom;
+
+                if (inside) {
+
+                    if (fillAnswer !== "") {
+
+                        document
+                            .querySelectorAll(".fill-choice")
+                            .forEach(choice => {
+
+                                if (choice.dataset.word === fillAnswer) {
+
+                                    choice.style.display = "";
+
+                                }
+
+                            });
+
+                    }
+
+                    fillAnswer =
+                        item.dataset.word;
+
+                    blankBox.innerText =
+                        item.dataset.word;
+
+                    item.style.display = "none";
+
+                    playSound("click.mp3");
+
+                }
+
+                clone.remove();
+
+                clone = null;
+
+            });
+
+        });
+
+    // --------------------
+    // Desktop Drop
+    // --------------------
+
+    blankBox.addEventListener("dragover", e => {
+
+        e.preventDefault();
+
+    });
+
+    blankBox.addEventListener("drop", e => {
+
+        e.preventDefault();
+
+        const text =
+            e.dataTransfer.getData("text");
+
+        if (fillAnswer !== "") {
+
+            document
+                .querySelectorAll(".fill-choice")
+                .forEach(choice => {
+
+                    if (choice.dataset.word === fillAnswer) {
+
+                        choice.style.display = "";
+
+                    }
+
+                });
+
+        }
+
+        fillAnswer = text;
+
+        blankBox.innerText = text;
+
+        document
+            .querySelectorAll(".fill-choice")
+            .forEach(choice => {
+
+                if (choice.dataset.word === text) {
+
+                    choice.style.display = "none";
+
+                }
+
+            });
+
+        playSound("click.mp3");
+
+    });
+
+}
+}
 
 // ========================================
 // HIỂN THỊ POPUP
@@ -360,51 +813,151 @@ document
     .onclick = () => {
 
 
-        // ====================================
-        // CHƯA CHỌN ĐÁP ÁN
-        // ====================================
-
-        if (
-            selectedAnswer === -1
-        ) {
-
-            answerIsCorrect = false;
-            playSound("warning.mp3");
-
-            showFeedback(
-
-                "../assets/popup/warning_icon.png",
-
-                "Em chưa chọn đáp án!",
-
-                "Em hãy chọn một đáp án nhé!",
-
-                "Đã hiểu",
-
-                "warning"
-
-            );
-
-
-            return;
-
-        }
-
-
         const q =
             questions[currentQuestion];
 
+// ====================================
+// CHƯA CHỌN ĐÁP ÁN
+// ====================================
+
+if (q.type === "matching") {
+
+    if (
+        Object.keys(matchingAnswers).length !==
+        q.left.length
+    ) {
+
+        playSound("warning.mp3");
+
+        showFeedback(
+            "../assets/popup/warning_icon.png",
+            "Em chưa nối đủ!",
+            "Hãy nối hết các cặp nhé!",
+            "Đã hiểu",
+            "warning"
+        );
+
+        return;
+
+    }
+
+}
+else if (q.type === "fill_blank") {
+
+    if (fillAnswer === "") {
+
+        playSound("warning.mp3");
+
+        showFeedback(
+            "../assets/popup/warning_icon.png",
+            "Em chưa điền từ!",
+            "Hãy kéo một từ vào ô trống nhé!",
+            "Đã hiểu",
+            "warning"
+        );
+
+        return;
+
+    }
+
+}
+else {
+
+    if (selectedAnswer === -1) {
+
+        playSound("warning.mp3");
+
+        showFeedback(
+            "../assets/popup/warning_icon.png",
+            "Em chưa chọn đáp án!",
+            "Em hãy chọn một đáp án nhé!",
+            "Đã hiểu",
+            "warning"
+        );
+
+        return;
+
+    }
+
+}
 
         // ====================================
         // TRẢ LỜI ĐÚNG
         // ====================================
+        let isCorrect = false;
+if (q.type === "matching") {
 
-        if (
-            selectedAnswer ===
-            q.answer
-        ) {
+    console.log("matchingAnswers:", matchingAnswers);
 
-            answerIsCorrect = true;
+    console.log("answer:", q.answer);
+
+    isCorrect = true;
+
+    for (let i = 0; i < q.answer.length; i++) {
+
+        if (matchingAnswers[i] !== q.answer[i]) {
+
+            isCorrect = false;
+
+            break;
+
+        }
+
+    }
+
+}
+else if (q.type === "fill_blank") {
+
+    isCorrect =
+        fillAnswer === q.answer;
+
+}
+else {
+
+    isCorrect =
+        selectedAnswer === q.answer;
+
+}
+        if (isCorrect) {
+
+    answerIsCorrect = true;
+    if (q.type === "fill_blank") {
+
+    const blank =
+        document.getElementById("blankBox");
+
+    if (blank) {
+
+        blank.style.background = "#4CAF50";
+
+        blank.style.color = "#ffffff";
+
+        blank.style.borderColor = "#4CAF50";
+
+    }
+
+}
+    if (q.type === "matching") {
+
+    for (let i = 0; i < q.answer.length; i++) {
+
+        const left = document.querySelector(
+            `.match-left[data-index="${i}"]`
+        );
+
+        const right = document.querySelector(
+            `.match-right[data-index="${q.answer[i]}"]`
+        );
+
+        left.classList.remove("matched");
+        right.classList.remove("matched");
+
+        left.classList.add(`match-color-${i}`);
+        right.classList.add(`match-color-${i}`);
+
+    }
+
+}
             // Nếu câu này chưa từng trả lời sai
             // thì được tính là đúng ngay lần đầu
             if (!currentQuestionHadWrongAnswer) {
@@ -438,6 +991,90 @@ document
         else {
 
             answerIsCorrect = false;
+            if (q.type === "fill_blank") {
+
+            const blank =
+                document.getElementById("blankBox");
+
+            if (blank) {
+
+                blank.style.background = "#F44336";
+
+                blank.style.color = "#ffffff";
+
+                blank.style.borderColor = "#F44336";
+
+            }
+
+        }
+            if (q.type === "matching") {
+
+    for (let i = 0; i < q.answer.length; i++) {
+
+        const left = document.querySelector(
+            `.match-left[data-index="${i}"]`
+        );
+
+        const rightIndex =
+            matchingAnswers[i];
+
+        if (rightIndex === undefined)
+            continue;
+
+        const right = document.querySelector(
+            `.match-right[data-index="${rightIndex}"]`
+        );
+
+        left.classList.remove(
+            "matched",
+            "selected"
+        );
+
+        right.classList.remove(
+            "matched"
+        );
+
+        if (rightIndex === q.answer[i]) {
+
+            left.classList.add(
+                `match-color-${i}`
+            );
+
+            right.classList.add(
+                `match-color-${i}`
+            );
+
+        } else {
+
+            left.classList.add(
+                "match-wrong"
+            );
+
+            right.classList.add(
+                "match-wrong"
+            );
+
+        }
+
+    }
+
+}
+else if (q.type === "fill_blank") {
+
+    const blank =
+        document.getElementById("blankBox");
+
+    if (blank) {
+
+        blank.style.background = "#4CAF50";
+
+        blank.style.color = "#ffffff";
+
+        blank.style.borderColor = "#4CAF50";
+
+    }
+
+}
             // Ghi nhận câu này đã từng trả lời sai
             currentQuestionHadWrongAnswer = true;
 
@@ -511,15 +1148,14 @@ document
         // ====================================
         // NẾU CHƯA CHỌN ĐÁP ÁN
         // ====================================
-
         if (
-            selectedAnswer === -1
+            selectedAnswer === -1 &&
+            questions[currentQuestion].type !== "fill_blank"
         ) {
 
             return;
 
         }
-
 
         // ====================================
         // NẾU TRẢ LỜI SAI
@@ -528,7 +1164,34 @@ document
         if (
             !answerIsCorrect
         ) {
+        if (questions[currentQuestion].type === "fill_blank") {
 
+            document
+                .querySelectorAll(".fill-choice")
+                .forEach(choice => {
+
+                    choice.style.display = "";
+
+                });
+
+            fillAnswer = "";
+
+            const blank =
+                document.getElementById("blankBox");
+
+            if (blank) {
+
+                blank.innerText = "";
+
+                blank.style.background = "#ffffff";
+
+                blank.style.color = "#2196F3";
+
+                blank.style.borderColor = "#4CAF50";
+
+            }
+
+        }
             // Đặt lại đáp án
             selectedAnswer = -1;
 

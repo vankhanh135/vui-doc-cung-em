@@ -530,7 +530,7 @@ body{
         24px;
 
     border: none;
-
+    font-family: "Nunito", sans-serif;
     border-radius: 18px;
 
     background: #43A047;
@@ -650,25 +650,6 @@ body{
         font-size: 21px;
     }
 
-}
-/* ==========================
-   ĐỒNG BỘ FONT TOÀN BỘ QUIZ
-========================== */
-
-button,
-.answer,
-.quiz-box,
-.feedback-popup,
-.feedback-content {
-
-    font-family:
-        "Nunito",
-        Arial,
-        sans-serif;
-
-}
-
-
 /* Tiêu đề popup */
 
 #feedbackTitle {
@@ -773,6 +754,7 @@ button,
         #1976D2
     );
 }
+}
 /* ========================================
    THANH ĐIỀU HƯỚNG
 ======================================== */
@@ -876,4 +858,794 @@ button,
     box-shadow:
         0 12px 25px
         rgba(0, 0, 0, 0.25);
+}
+/* ==================================================
+   RESPONSIVE RIÊNG CHO ĐIỆN THOẠI
+   Màn hình khoảng 390px - 480px
+================================================== */
+
+@media (max-width: 480px) {
+
+    /* ========================================
+       TOÀN BỘ TRANG
+    ======================================== */
+
+    body {
+        overflow-x: hidden;
+    }
+
+    .quiz-page {
+        min-height: 100vh;
+
+        padding:
+            92px
+            14px
+            32px;
+    }
+
+
+    /* ========================================
+       THANH ĐIỀU HƯỚNG
+    ======================================== */
+
+    .top-nav {
+        top: 10px;
+        left: 12px;
+        right: 12px;
+
+        gap: 12px;
+    }
+
+
+    /* Hai nút Trang chủ và Quay lại */
+
+    .top-nav .nav-btn {
+        min-width: 0;
+
+        width: auto;
+
+        padding:
+            10px
+            16px;
+
+        border-radius: 999px;
+
+        font-size: 16px;
+        font-weight: 800;
+
+        gap: 5px;
+
+        white-space: nowrap;
+
+        box-shadow:
+            0 5px 14px
+            rgba(0, 0, 0, 0.18);
+    }
+
+
+    /* ========================================
+       LOGO
+    ======================================== */
+
+    .quiz-page .logo {
+        width: 105px;
+
+        margin:
+            0
+            auto
+            8px;
+    }
+
+
+    /* ========================================
+       TIÊU ĐỀ ĐỌC HIỂU
+    ======================================== */
+
+    .quiz-page h1 {
+        margin:
+            0
+            0
+            16px;
+
+        font-size: 32px;
+        line-height: 1.2;
+
+        letter-spacing: 0.5px;
+    }
+
+
+    /* ========================================
+       KHUNG CÂU HỎI
+    ======================================== */
+
+    .quiz-box {
+        width: 100%;
+
+        padding:
+            22px
+            18px
+            24px;
+
+        border-radius: 24px;
+
+        box-shadow:
+            0 10px 28px
+            rgba(0, 0, 0, 0.16);
+    }
+
+
+    /* ========================================
+       SỐ CÂU
+    ======================================== */
+
+    #questionNumber {
+        margin:
+            0
+            0
+            14px;
+
+        font-size: 22px;
+    }
+
+
+    /* ========================================
+       NỘI DUNG CÂU HỎI
+    ======================================== */
+
+    #questionText {
+        margin:
+            0
+            0
+            16px;
+
+        font-size: 23px;
+        line-height: 1.4;
+    }
+
+
+    /* ========================================
+       NÚT NGHE CÂU HỎI
+    ======================================== */
+
+    .question-audio-button {
+        min-height: 46px;
+
+        margin:
+            0
+            0
+            18px;
+
+        padding:
+            10px
+            18px;
+
+        border-radius: 16px;
+
+        font-size: 17px;
+
+        gap: 7px;
+    }
+
+
+    /* ========================================
+       DANH SÁCH ĐÁP ÁN
+    ======================================== */
+
+    #answers {
+        gap: 12px;
+    }
+
+
+    /* ========================================
+       TỪNG ĐÁP ÁN
+    ======================================== */
+
+    .answer {
+        min-height: 58px;
+
+        padding:
+            14px
+            16px;
+
+        border-radius: 16px;
+
+        font-size: 19px;
+        line-height: 1.35;
+
+        display: flex;
+        align-items: center;
+    }
+
+
+    /* ========================================
+       NÚT TIẾP TỤC
+    ======================================== */
+
+    #nextQuestion {
+        min-height: 54px;
+
+        margin-top: 20px;
+
+        padding:
+            12px
+            18px;
+
+        border-radius: 16px;
+
+        font-size: 21px;
+    }
+
+
+    /* ========================================
+       POPUP PHẢN HỒI
+    ======================================== */
+
+    .feedback-popup {
+        padding: 16px;
+    }
+
+    .feedback-content {
+        width: 100%;
+
+        max-width: 360px;
+
+        padding:
+            22px
+            18px
+            24px;
+
+        border-radius: 24px;
+    }
+
+
+    /* Icon popup */
+
+    .feedback-icon {
+        width: 105px;
+        height: 105px;
+
+        margin:
+            0
+            auto
+            8px;
+    }
+
+
+    /* Tiêu đề popup */
+
+    #feedbackTitle {
+        margin-bottom: 8px;
+
+        font-size: 27px;
+    }
+
+
+    /* Nội dung popup */
+
+    #feedbackMessage {
+        margin-bottom: 18px;
+
+        font-size: 19px;
+        line-height: 1.4;
+    }
+
+
+    /* Nút popup */
+
+    #feedbackButton {
+        min-height: 52px;
+
+        padding:
+            12px
+            18px;
+
+        border-radius: 16px;
+
+        font-size: 20px;
+    }
+
+}
+/* ==================================================
+   TỐI ƯU CHIỀU CAO CHO MÀN HÌNH ĐIỆN THOẠI THẤP
+================================================== */
+
+@media (max-width: 480px) and (max-height: 700px) {
+
+    /* Thu gọn khoảng trống phần đầu */
+    .quiz-page {
+        padding-top: 78px;
+    }
+
+    /* Logo nhỏ hơn một chút */
+    .quiz-page .logo {
+        width: 92px;
+
+        margin-bottom: 4px;
+    }
+
+    /* Tiêu đề gọn hơn */
+    .quiz-page h1 {
+        margin-bottom: 12px;
+
+        font-size: 30px;
+    }
+
+    /* Khung câu hỏi */
+    .quiz-box {
+        padding:
+            18px
+            18px
+            20px;
+    }
+
+    /* Số câu */
+    #questionNumber {
+        margin-bottom: 10px;
+
+        font-size: 21px;
+    }
+
+    /* Câu hỏi */
+    #questionText {
+        margin-bottom: 12px;
+
+        font-size: 22px;
+    }
+
+    /* Nút nghe */
+    .question-audio-button {
+        min-height: 44px;
+
+        margin-bottom: 14px;
+
+        padding:
+            9px
+            16px;
+
+        font-size: 16px;
+    }
+
+    /* Khoảng cách giữa các đáp án */
+    #answers {
+        gap: 10px;
+    }
+
+    /* Đáp án */
+    .answer {
+        min-height: 54px;
+
+        padding:
+            12px
+            16px;
+
+        font-size: 18px;
+    }
+
+    /* Nút tiếp tục */
+    #nextQuestion {
+        min-height: 50px;
+
+        margin-top: 16px;
+
+        padding:
+            10px
+            16px;
+
+        font-size: 20px;
+    }
+}
+/* =========================
+   MATCHING
+========================= */
+
+.matching-container{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    gap:40px;
+
+    margin-top:25px;
+
+}
+
+.matching-left,
+.matching-right{
+
+    flex:1;
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:15px;
+
+}
+/* =========================
+   MATCHING
+========================= */
+
+.match-left,
+.match-right{
+
+    background:#4CAF50;
+
+    color:white;
+
+    border:3px solid #4CAF50;
+
+    border-radius:15px;
+
+    padding:15px;
+
+    font-size:22px;
+
+    font-weight:bold;
+
+    cursor:pointer;
+
+    transition:.25s;
+
+    user-select:none;
+
+}
+
+/* Hover */
+
+.match-left:hover,
+.match-right:hover{
+
+    transform:translateY(-2px);
+
+    filter:brightness(1.08);
+
+}
+
+/* Đang chọn */
+
+.match-left.selected{
+
+    background:#2196F3;
+
+    border-color:#1976D2;
+
+}
+
+/* Đã nối nhưng CHƯA kiểm tra */
+
+.match-left.matched,
+.match-right.matched{
+
+    background:#2196F3;
+
+    border-color:#1976D2;
+
+    color:white;
+
+}
+
+/* Đúng sau khi kiểm tra */
+
+.match-color-0{
+
+    background:#00C853;
+
+    border-color:#00C853;
+
+}
+
+.match-color-1{
+
+    background:#2962FF;
+
+    border-color:#2962FF;
+
+}
+
+.match-color-2{
+
+    background:#FF9800;
+
+    border-color:#FF9800;
+
+}
+
+.match-color-3{
+
+    background:#9C27B0;
+
+    border-color:#9C27B0;
+
+}
+
+.match-color-4{
+
+    background:#E91E63;
+
+    border-color:#E91E63;
+
+}
+
+/* Sai */
+
+.match-wrong{
+
+    background:#F44336;
+
+    border-color:#F44336;
+
+    color:white;
+
+}
+/*=========================
+FILL BLANK
+=========================*/
+
+.fill-container{
+
+    margin-top:35px;
+
+}
+
+.fill-sentence{
+
+    text-align:center;
+
+    font-size:30px;
+
+    font-weight:bold;
+
+    line-height:1.8;
+
+}
+
+.blank-box{
+
+    display:inline-flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    text-align:center;
+
+    width:240px;
+
+    height:58px;
+
+    border:3px dashed #4CAF50;
+
+    border-radius:15px;
+
+    background:white;
+
+    vertical-align:middle;
+
+    font-size:28px;
+
+    font-weight:bold;
+
+    color:#2196F3;
+
+    overflow:hidden;
+
+}
+
+.fill-choices{
+
+    margin-top:45px;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    gap:25px;
+
+}
+
+.fill-choice{
+
+    min-width:170px;
+
+    background:#019eff;
+
+    color:white;
+
+    padding:16px 25px;
+
+    border-radius:16px;
+
+    font-size:28px;
+
+    font-weight:bold;
+
+    text-align:center;
+
+    cursor:pointer;
+
+}
+.fill-choice.dragging{
+
+    opacity:.55;
+
+    transform:scale(1.08);
+
+}
+/*=========================
+NÚT TIẾP TỤC
+=========================*/
+
+#nextQuestion{
+
+    width:340px;
+    font-family: "Nunito", Arial, sans-serif;
+
+    height:62px;
+
+    display:block;
+
+    margin:35px auto 0;
+
+    border:none;
+
+    border-radius:18px;
+
+    cursor:pointer;
+
+}
+/* =========================================
+   RESPONSIVE - FILL BLANK MOBILE
+========================================= */
+
+@media screen and (max-width:768px){
+
+    /* Khung câu hỏi */
+
+    .fill-container{
+
+        width:100%;
+
+        padding:15px;
+
+        display:flex;
+
+        flex-direction:column;
+
+        align-items:center;
+
+    }
+
+
+    /* Câu đọc */
+
+    .fill-sentence{
+
+        width:100%;
+
+        text-align:center;
+
+        font-size:24px;
+
+        line-height:1.8;
+
+        font-weight:700;
+
+        margin-bottom:28px;
+
+    }
+
+
+    /* Ô trống */
+
+    .blank-box{
+
+        display:inline-flex;
+
+        justify-content:center;
+
+        align-items:center;
+
+        width:150px;
+
+        min-width:150px;
+
+        height:52px;
+
+        margin:0 6px;
+
+        font-size:24px;
+
+        border-radius:12px;
+
+    }
+
+
+    /* Danh sách từ */
+
+    .fill-choices{
+
+        width:100%;
+
+        display:flex;
+
+        flex-direction:column;
+
+        align-items:center;
+
+        gap:14px;
+
+        margin-top:10px;
+
+    }
+
+
+    /* Mỗi từ */
+
+    .fill-choice{
+
+        width:90%;
+
+        max-width:320px;
+
+        min-height:72px;
+
+        display:flex;
+
+        justify-content:center;
+
+        align-items:center;
+
+        font-size:24px;
+
+        font-weight:700;
+
+        border-radius:18px;
+
+        padding:10px 18px;
+
+        box-sizing:border-box;
+
+        user-select:none;
+
+        touch-action:none;
+
+    }
+
+
+    /* Nút Tiếp tục */
+
+    #nextQuestion{
+
+        width:90%;
+
+        max-width:320px;
+
+        height:60px;
+
+        margin-top:24px;
+
+        font-size:28px;
+
+        border-radius:18px;
+
+    }
+
+
+    /* Nút nghe */
+
+    #playQuestionAudio{
+
+        width:220px;
+
+        height:56px;
+
+        font-size:22px;
+
+        margin-bottom:25px;
+
+    }
+
 }

@@ -1,0 +1,1076 @@
+/* ==========================================================
+   PREVIEW 2.0
+   PHẦN 1
+   RESET + LAYOUT + NAVIGATION + COVER
+========================================================== */
+
+/* ==========================================================
+   RESET
+========================================================== */
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html,
+body{
+    width:100%;
+    min-height:100%;
+}
+
+body{
+
+    font-family:
+        "Nunito",
+        Arial,
+        Helvetica,
+        sans-serif;
+
+    background:
+        url("../assets/background/home-bg.jpg")
+        center center / cover
+        no-repeat;
+
+    min-height:100vh;
+
+    overflow-x:hidden;
+
+}
+
+body::before{
+
+    content:"";
+
+    position:fixed;
+
+    inset:0;
+
+    background:rgba(255,255,255,.45);
+
+    backdrop-filter:blur(4px);
+
+    z-index:0;
+
+}
+
+/* ==========================================================
+   LAYOUT
+========================================================== */
+
+.preview-page{
+
+    position:relative;
+
+    z-index:1;
+
+    width:min(980px,95%);
+
+    margin:auto;
+
+    padding:22px 20px 60px;
+
+    display:flex;
+
+    flex-direction:column;
+
+    align-items:center;
+
+}
+
+/* ==========================================================
+   THANH ĐIỀU HƯỚNG
+========================================================== */
+
+.top-nav{
+
+    position:fixed;
+
+    top:20px;
+
+    left:20px;
+
+    right:20px;
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:flex-start;
+
+    z-index:999;
+
+}
+
+.nav-btn{
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    gap:8px;
+
+    padding:12px 22px;
+
+    border:none;
+
+    border-radius:999px;
+
+    text-decoration:none;
+
+    cursor:pointer;
+
+    background:#43A047;
+
+    color:#fff;
+
+    font-family:
+        "Nunito",
+        sans-serif;
+
+    font-size:20px;
+
+    font-weight:700;
+
+    line-height:1;
+
+    letter-spacing:0;
+
+    text-rendering:optimizeLegibility;
+
+    -webkit-font-smoothing:antialiased;
+
+    -moz-osx-font-smoothing:grayscale;
+
+}
+
+.nav-btn:hover{
+
+    transform:translateY(-3px);
+
+}
+
+.home-btn{
+
+    background:#43A047;
+
+}
+
+.back-btn{
+
+    background:#FB8C00;
+
+    width:190px;
+    white-space:nowrap;
+
+}
+
+/* ==========================================================
+   NÚT ÂM THANH
+========================================================== */
+
+.bgm-toggle-button{
+
+    position:fixed;
+
+    top:82px;
+
+    right:20px;
+
+    width:58px;
+
+    height:58px;
+
+    border:none;
+
+    border-radius:50%;
+
+    background:#fff;
+
+    cursor:pointer;
+
+    box-shadow:
+        0 8px 18px rgba(0,0,0,.18);
+
+    z-index:1000;
+
+}
+
+.bgm-toggle-button img{
+
+    width:100%;
+
+    height:100%;
+
+    object-fit:contain;
+
+}
+
+/* ==========================================================
+   LOGO
+========================================================== */
+
+.logo{
+
+    width:150px;
+
+    margin-bottom:8px;
+
+    object-fit:contain;
+
+}
+
+/* ==========================================================
+   TÊN BÀI
+========================================================== */
+
+#lessonTitle{
+
+    margin:12px 0 26px;
+
+    text-align:center;
+
+    font-family:
+        "Baloo 2",
+        cursive;
+
+    font-size:48px;
+
+    font-weight:800;
+
+    line-height:1.2;
+
+    color:#2F74D8;
+
+}
+
+/* ==========================================================
+   ẢNH MINH HỌA
+========================================================== */
+
+.preview-image{
+
+    width:100%;
+
+    max-width:760px;
+
+    overflow:hidden;
+
+    border-radius:28px;
+
+    background:#fff;
+
+    box-shadow:
+        0 14px 38px rgba(0,0,0,.18);
+
+    margin-bottom:28px;
+
+    transition:.35s;
+
+}
+
+.preview-image img{
+
+    display:block;
+
+    width:100%;
+
+}
+
+.preview-image.shrink{
+
+    display:none;
+
+}
+
+/* ==========================================================
+   NÚT CHUNG
+========================================================== */
+
+.preview-btn{
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    gap:10px;
+
+    min-width:320px;
+
+    height:62px;
+
+    margin:22px auto 0;
+
+    border:none;
+
+    border-radius:999px;
+
+    background:#1E88E5;
+
+    color:#fff;
+
+    font-family:
+        "Nunito",
+
+        sans-serif;
+
+    font-size:20px;
+
+    font-weight:700;
+
+    line-height:1;
+
+    letter-spacing:0;
+
+    cursor:pointer;
+
+    text-rendering:optimizeLegibility;
+
+    -webkit-font-smoothing:antialiased;
+
+    -moz-osx-font-smoothing:grayscale;
+
+    transition:.25s;
+
+    box-shadow:0 10px 24px rgba(30,136,229,.30);
+
+}
+
+.preview-btn:hover{
+
+    transform:translateY(-3px);
+
+}
+
+.preview-btn:active{
+
+    transform:scale(.98);
+
+}
+
+.preview-btn:disabled{
+
+    opacity:.65;
+
+    cursor:not-allowed;
+
+}
+
+.preview-btn.start{
+
+    background:#43A047;
+
+    box-shadow:
+        0 10px 24px rgba(67,160,71,.30);
+
+}
+
+/* ==========================================================
+   HIỂN THỊ
+========================================================== */
+
+.hidden{
+
+    display:none !important;
+
+}
+/* ==========================================================
+   PREVIEW 2.0
+   PHẦN 2
+   READING SECTION
+========================================================== */
+
+/* ==========================================================
+   KHUNG BÀI ĐỌC
+========================================================== */
+
+.reading-section{
+
+    width:100%;
+
+    max-width:980px;
+
+    margin:24px auto 10px;
+
+    padding:20px;
+
+    background:#ffffff;
+
+    border-radius:30px;
+
+    box-shadow:
+        0 14px 40px rgba(0,0,0,.16);
+
+    animation:fadeUp .45s ease;
+
+}
+
+/* ==========================================================
+   HEADER
+========================================================== */
+
+.reading-header{
+
+    display:flex;
+
+    flex-direction:column;
+
+    align-items:center;
+
+    text-align:center;
+
+    margin-bottom:18px;
+
+}
+
+.reading-label{
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    gap:10px;
+
+    margin-bottom:12px;
+
+    font-family:"Baloo 2", cursive;
+
+    font-size:30px;
+
+    font-weight:700;
+
+    color:#3D9A42;
+
+}
+
+.reading-guide{
+
+    display:inline-block;
+
+    margin:0 0 24px;
+
+    padding:10px 22px;
+
+    background:#EEF6FF;
+
+    border-radius:14px;
+
+    font-family:"Nunito", sans-serif;
+
+    font-size:18px;
+
+    font-weight:600;
+
+    color:#57718A;
+
+    line-height:1.5;
+
+}
+
+#previewLessonTitle{
+
+    width:100%;
+
+    margin:10px auto 18px;
+
+    text-align:center;
+
+    font-family:"Baloo 2",cursive;
+
+    font-size:40px;
+
+    font-weight:800;
+
+    line-height:1.25;
+
+    color:#2F74D8;
+
+}
+
+/* ==========================================================
+   KHUNG NỘI DUNG
+========================================================== */
+
+.preview-reading-text{
+
+    width:100%;
+
+    padding:18px;
+
+    background:#FFFDF8;
+
+    border:2px solid #F4DFB1;
+
+    border-radius:22px;
+
+}
+
+/* ==========================================================
+   BÀI ĐỌC
+========================================================== */
+
+.reading-text{
+
+    font-family:
+        Arial,
+        Helvetica,
+        sans-serif;
+
+    font-size:27px;
+
+    font-weight:500;
+
+    line-height:1.8;
+
+    color:#2F2F2F;
+
+    text-align:justify;
+
+    letter-spacing:.1px;
+
+}
+
+.reading-paragraph{
+
+    margin-bottom:20px;
+
+    text-indent:2em;
+
+    transition:
+        background .30s,
+        color .30s,
+        transform .30s;
+
+}
+
+.reading-author{
+
+    margin-top:18px;
+
+    padding-right:10px;
+
+    text-align:right;
+
+    font-size:19px;
+
+    font-style:italic;
+
+    color:#777;
+
+}
+
+/* ==========================================================
+   TÔ ĐOẠN ĐANG ĐỌC
+========================================================== */
+
+.reading-paragraph.active-reading{
+
+    padding:10px 14px;
+
+    border-radius:14px;
+
+    background:#FFF4A8;
+
+    color:#D35400;
+
+    font-weight:800;
+
+}
+
+/* ==========================================================
+   TÔ TỪ ĐANG ĐỌC
+========================================================== */
+
+.preview-reading-text span{
+
+    padding:2px 3px;
+
+    border-radius:8px;
+
+    transition:.18s;
+
+}
+
+.preview-reading-text span.active{
+
+    background:#FFE082;
+
+    color:#D84315;
+
+}
+
+/* ==========================================================
+   TRẠNG THÁI
+========================================================== */
+
+.preview-status{
+
+    min-height:auto;
+
+    margin:6px 0 10px;
+
+    text-align:center;
+
+    font-size:26px;
+
+    font-weight:800;
+
+    color:#2E7D32;
+
+}
+
+/* ==========================================================
+   NÚT SAU KHI NGHE XONG
+========================================================== */
+
+.finish-buttons{
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    gap:14px;
+
+    margin-top:2px;
+
+    flex-wrap:wrap;
+
+}
+
+.finish-buttons.hidden{
+
+    display:none;
+
+}
+
+/* ==========================================================
+   HIỆU ỨNG
+========================================================== */
+
+@keyframes fadeUp{
+
+    from{
+
+        opacity:0;
+
+        transform:translateY(24px);
+
+    }
+
+    to{
+
+        opacity:1;
+
+        transform:translateY(0);
+
+    }
+
+}
+
+@keyframes pulse{
+
+    0%{
+
+        transform:scale(1);
+
+    }
+
+    50%{
+
+        transform:scale(1.05);
+
+    }
+
+    100%{
+
+        transform:scale(1);
+
+    }
+
+}
+
+.preview-btn.start{
+
+    animation:pulse 1.3s infinite;
+
+}
+/* ==========================================================
+   PREVIEW 2.0
+   PHẦN 3
+   RESPONSIVE
+========================================================== */
+
+/* ==========================================================
+   TABLET
+========================================================== */
+
+@media screen and (max-width:768px){
+
+    .preview-page{
+
+        width:100%;
+
+        padding:100px 18px 40px;
+
+    }
+
+    .logo{
+
+        width:150px;
+
+    }
+
+    #lessonTitle{
+
+        font-size:38px;
+
+        margin-bottom:22px;
+
+    }
+
+    .preview-image{
+
+        max-width:100%;
+
+        border-radius:24px;
+
+    }
+
+    .preview-btn{
+
+        width:100%;
+
+        max-width:360px;
+
+        min-width:unset;
+
+        height:60px;
+
+        font-size:22px;
+
+    }
+
+    .reading-section{
+
+        padding:22px;
+
+        border-radius:24px;
+
+    }
+
+    .reading-label{
+
+        font-size:26px;
+
+    }
+
+    .reading-guide{
+
+        font-size:17px;
+
+    }
+
+    #previewLessonTitle{
+
+        font-size:30px;
+
+    }
+
+    .preview-reading-text{
+
+        padding:20px;
+
+    }
+
+    .reading-text{
+
+        font-size:24px;
+
+        line-height:1.9;
+
+    }
+
+    .reading-author{
+
+        font-size:20px;
+
+    }
+
+    .preview-status{
+
+        font-size:22px;
+
+    }
+
+    .nav-btn{
+
+        font-size:18px;
+
+        padding:12px 22px;
+
+    }
+
+    .back-btn{
+
+        width:190px;
+
+    }
+
+}
+
+/* ==========================================================
+   MOBILE
+========================================================== */
+
+@media screen and (max-width:480px){
+
+    .preview-page{
+
+        width:100%;
+
+        padding:88px 12px 30px;
+
+    }
+
+    .logo{
+
+        width:110px;
+
+        margin-bottom:16px;
+
+    }
+
+    #lessonTitle{
+
+        font-size:30px;
+
+        margin-bottom:18px;
+
+        line-height:1.25;
+
+    }
+
+    .preview-image{
+
+        border-radius:18px;
+
+        margin-bottom:20px;
+
+    }
+
+    .reading-section{
+
+        margin-top:18px;
+
+        padding:18px;
+
+        border-radius:20px;
+
+    }
+
+    .reading-label{
+
+        font-size:22px;
+
+    }
+
+    .reading-guide{
+
+        display:block;
+
+        font-size:15px;
+
+        line-height:1.6;
+
+        padding:10px 14px;
+
+        border-radius:12px;
+
+    }
+
+    #previewLessonTitle{
+
+        font-size:28px;
+
+        margin-bottom:20px;
+
+    }
+
+    .preview-reading-text{
+
+        padding:18px 16px;
+
+    }
+
+    .reading-text{
+
+        font-size:21px;
+
+        line-height:1.9;
+
+        text-align:justify;
+
+        word-break:normal;
+
+        overflow-wrap:break-word;
+
+    }
+
+    .reading-paragraph{
+
+        text-indent:1.2em;
+
+        margin-bottom:16px;
+
+    }
+
+    .reading-author{
+
+        font-size:18px;
+
+        padding-right:8px;
+
+    }
+
+    .preview-btn{
+
+        width:88%;
+
+        max-width:300px;
+
+        min-width:unset;
+
+        height:54px;
+
+        margin-top:18px;
+
+        font-size:18px;
+
+    }
+
+    #prepareBtn{
+
+        width:88%;
+
+        max-width:300px;
+
+    }
+
+    .finish-buttons{
+
+        flex-direction:column;
+
+        gap:14px;
+
+        width:100%;
+
+    }
+
+    .preview-status{
+
+        font-size:18px;
+
+        min-height:32px;
+
+    }
+
+    .top-nav{
+
+        top:12px;
+
+        left:12px;
+
+        right:12px;
+
+    }
+
+    .nav-btn{
+
+        font-size:15px;
+
+        padding:10px 14px;
+
+        border-radius:16px;
+
+    }
+
+    .back-btn{
+
+        width:auto;
+
+    }
+
+    .bgm-toggle-button{
+
+        position:fixed;
+
+        top:82px;
+
+        right:16px;
+
+        width:46px;
+
+        height:46px;
+
+        z-index:1000;
+    }
+
+}
+
+/* ==========================================================
+   MOBILE THẤP
+========================================================== */
+
+@media screen and (max-height:650px){
+
+    .preview-page{
+
+        padding-bottom:20px;
+
+    }
+
+    .logo{
+
+        width:100px;
+
+    }
+
+    #lessonTitle{
+
+        font-size:28px;
+
+    }
+
+    .preview-image{
+
+        margin-bottom:16px;
+
+    }
+
+}
+.reading-word{
+
+    transition:.18s;
+
+    border-radius:6px;
+
+    padding:2px 2px;
+
+}
+
+.reading-word.active{
+    background:#ffe066;
+    color:#d62828;
+    border-radius:6px;
+    padding:2px 4px;
+    transition:.15s;
+}

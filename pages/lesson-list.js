@@ -100,7 +100,15 @@ const params =
     );
 
 const topic =
-    params.get("topic") || 1;
+    params.get("topic") || "1";
+
+
+// ========================================
+// KIỂM TRA CHỦ ĐỀ
+// ========================================
+
+const currentTopic =
+    topics[topic] || topics[1];
 
 
 // ========================================
@@ -109,12 +117,12 @@ const topic =
 
 document.getElementById(
     "topicTitle"
-).innerHTML =
-    topics[topic].title;
+).textContent =
+    currentTopic.title;
 
 
 // ========================================
-// HIỂN THỊ DANH SÁCH BÀI HỌC
+// KHU VỰC DANH SÁCH BÀI HỌC
 // ========================================
 
 const container =
@@ -127,19 +135,34 @@ const container =
 // LẤY TIẾN ĐỘ ĐÃ LƯU
 // ========================================
 
-const savedProgress =
-    JSON.parse(
-        localStorage.getItem(
-            "readingProgress"
-        )
-    ) || {};
+let savedProgress = {};
+
+try {
+
+    savedProgress =
+        JSON.parse(
+            localStorage.getItem(
+                "readingProgress"
+            )
+        ) || {};
+
+} catch (error) {
+
+    console.error(
+        "Không thể đọc tiến độ bài học:",
+        error
+    );
+
+    savedProgress = {};
+
+}
 
 
 // ========================================
 // TẠO DANH SÁCH BÀI HỌC
 // ========================================
 
-topics[topic].lessons.forEach(
+currentTopic.lessons.forEach(
     (lessonName, index) => {
 
         // Số thứ tự bài học
@@ -154,57 +177,117 @@ topics[topic].lessons.forEach(
 
         // Lấy tiến độ của bài học
         const lessonProgress =
-            savedProgress[
-                progressKey
-            ];
+            savedProgress[progressKey];
 
 
-        // Nội dung trạng thái
-        let progressHTML = "";
+        // Kiểm tra bài đã hoàn thành chưa
+        const isCompleted =
+            Boolean(
+                lessonProgress &&
+                lessonProgress.completed
+            );
 
 
-        // Nếu bài học đã hoàn thành
-        if (
-            lessonProgress &&
-            lessonProgress.completed
-        ) {
+        // ========================================
+        // XỬ LÝ SỐ SAO
+        // ========================================
 
-            const stars =
-                "⭐".repeat(
-                    lessonProgress.stars || 0
-                );
+        let starCount = 0;
 
+        if (isCompleted) {
 
-            progressHTML = `
-
-                <div class="lesson-progress">
-
-                    <span class="completed-text">
-
-                        ✓ Đã hoàn thành
-
-                    </span>
-
-                    <span class="lesson-stars">
-
-                        ${stars}
-
-                    </span>
-
-                </div>
-
-            `;
+            starCount =
+                Number(
+                    lessonProgress.stars
+                ) || 0;
 
         }
 
 
-        // Tạo thẻ bài học
-        container.innerHTML += `
+        // Giới hạn từ 0 đến 3 sao
+        starCount =
+            Math.max(
+                0,
+                Math.min(
+                    3,
+                    starCount
+                )
+            );
 
-            <a
-                class="lesson-card"
-                href="lesson.html?topic=${topic}&lesson=${lessonNumber}"
-            >
+
+        // Tạo 3 vị trí sao cố định
+        const starsHTML =
+            Array.from(
+                {
+                    length: 3
+                },
+                (_, starIndex) => {
+
+                    if (
+                        starIndex < starCount
+                    ) {
+
+                        return `
+                            <span
+                                class="star filled-star"
+                                aria-hidden="true"
+                            >
+                                ⭐
+                            </span>
+                        `;
+
+                    }
+
+                    return `
+                        <span
+                            class="star empty-star"
+                            aria-hidden="true"
+                        >
+                            ☆
+                        </span>
+                    `;
+
+                }
+            ).join("");
+
+
+        // ========================================
+        // TRẠNG THÁI BÀI HỌC
+        // ========================================
+
+        const statusText =
+            isCompleted
+                ? "✓ Đã hoàn thành"
+                : "Chưa hoàn thành";
+
+
+        const statusClass =
+            isCompleted
+                ? "completed-text"
+                : "not-completed-text";
+
+
+        // ========================================
+        // TẠO THẺ BÀI HỌC
+        // ========================================
+
+        const lessonCard =
+            document.createElement(
+                "a"
+            );
+
+
+        lessonCard.className =
+            "lesson-card";
+
+
+        lessonCard.href =
+            `preview.html?topic=${topic}&lesson=${lessonNumber}`;
+
+
+        lessonCard.innerHTML = `
+
+            <div class="lesson-main-content">
 
                 <span class="lesson-number">
 
@@ -219,12 +302,72 @@ topics[topic].lessons.forEach(
 
                 </span>
 
+            </div>
 
-                ${progressHTML}
 
-            </a>
+            <div class="lesson-progress">
+
+                <span class="${statusClass}">
+
+                    ${statusText}
+
+                </span>
+
+
+                <span
+                    class="lesson-stars"
+                    aria-label="${starCount} trên 3 sao"
+                >
+
+                    ${starsHTML}
+
+                </span>
+
+            </div>
 
         `;
+
+
+        // ========================================
+        // HIỆU ỨNG CLICK
+        // ========================================
+
+        lessonCard.addEventListener(
+            "click",
+            function(event) {
+
+                // Ngăn chuyển trang ngay lập tức
+                event.preventDefault();
+
+
+                // Phát âm thanh click
+                playSFX("click");
+
+
+                // Lấy địa chỉ bài học
+                const nextPage =
+                    lessonCard.href;
+
+
+                // Chờ âm thanh click rồi chuyển trang
+                setTimeout(
+                    function() {
+
+                        window.location.href =
+                            nextPage;
+
+                    },
+                    200
+                );
+
+            }
+        );
+
+
+        // Thêm thẻ vào danh sách
+        container.appendChild(
+            lessonCard
+        );
 
     }
 );
@@ -252,20 +395,34 @@ const bgmToggleIcon =
     );
 
 
-// Cập nhật icon theo trạng thái nhạc nền
+// ========================================
+// CẬP NHẬT ICON NHẠC NỀN
+// ========================================
+
 function updateBGMButton() {
+
+    if (
+        !bgmToggleButton ||
+        !bgmToggleIcon
+    ) {
+
+        return;
+
+    }
+
 
     if (isBGMEnabled()) {
 
         // Nhạc đang bật
-
         bgmToggleIcon.src =
             "../assets/icons/sound.png";
+
 
         bgmToggleButton.setAttribute(
             "aria-label",
             "Tắt nhạc nền"
         );
+
 
         bgmToggleButton.title =
             "Tắt nhạc nền";
@@ -273,14 +430,15 @@ function updateBGMButton() {
     } else {
 
         // Nhạc đang tắt
-
         bgmToggleIcon.src =
             "../assets/icons/unsound.png";
+
 
         bgmToggleButton.setAttribute(
             "aria-label",
             "Bật nhạc nền"
         );
+
 
         bgmToggleButton.title =
             "Bật nhạc nền";
@@ -298,54 +456,19 @@ updateBGMButton();
 // BẤM NÚT BẬT / TẮT NHẠC
 // ========================================
 
-bgmToggleButton.addEventListener(
-    "click",
-    function() {
+if (bgmToggleButton) {
 
-        toggleBGM();
+    bgmToggleButton.addEventListener(
+        "click",
+        function() {
 
-        updateBGMButton();
+            toggleBGM();
 
-        playSFX("click");
+            updateBGMButton();
 
-    }
-);
+            playSFX("click");
 
+        }
+    );
 
-// ========================================
-// HIỆU ỨNG CLICK KHI CHỌN BÀI HỌC
-// ========================================
-
-document
-    .querySelectorAll(".lesson-card")
-    .forEach(function(card) {
-
-        card.addEventListener(
-            "click",
-            function(event) {
-
-                // Ngăn chuyển trang ngay lập tức
-                event.preventDefault();
-
-                // Phát âm thanh click
-                playSFX("click");
-
-                // Lấy địa chỉ bài học
-                const nextPage =
-                    card.href;
-
-                // Chờ một chút rồi chuyển trang
-                setTimeout(
-                    function() {
-
-                        window.location.href =
-                            nextPage;
-
-                    },
-                    200
-                );
-
-            }
-        );
-
-    });
+}

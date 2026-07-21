@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Đọc cùng Thỏ Thông Thái</title>
+
+    <!-- ICON TRANG WEB -->
+    <link
+        rel="icon"
+        type="image/png"
+        href="../assets/logo/logo.png"
+    >
+
+    <!-- FONT NUNITO -->
+    <link
+        rel="preconnect"
+        href="https://fonts.googleapis.com"
+    >
+
+    <link
+        rel="preconnect"
+        href="https://fonts.gstatic.com"
+        crossorigin
+    >
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&display=swap"
+        rel="stylesheet"
+    >
+
+    <!-- CSS CHUNG -->
+    <link
+        rel="stylesheet"
+        href="../style.css"
+    >
+
+    <!-- CSS TRANG ĐỌC AI -->
+    <link
+        rel="stylesheet"
+        href="ai-reading.css"
+    >
+
+</head>
+
+
+<body>
+
+    <!-- ========================================
+         TRANG ĐỌC CÙNG AI
+    ======================================== -->
+
+    <main class="ai-reading-page">
+
+
+        <!-- ========================================
+             PHẦN ĐẦU TRANG
+        ======================================== -->
+
+        <header class="ai-header">
+
+
+            <!-- TRANG CHỦ -->
+            <a
+                href="../index.html"
+                class="nav-btn home-btn"
+            >
+                🏠 Trang chủ
+            </a>
+
+
+            <!-- LOGO + TIÊU ĐỀ -->
+            <div class="ai-header-center">
+
+                <img
+                    src="../assets/logo/logo.png"
+                    alt="Vui đọc cùng em"
+                    class="ai-logo"
+                >
+
+                <h1 class="ai-title">
+                    <img
+                        src="../assets/popup/ai_icon.png"
+                        alt="AI"
+                        class="ai-title-icon"
+                    >
+                    <span>ĐỌC CÙNG <br>
+                        THỎ THÔNG THÁI</span>
+                </h1>
+
+            </div>
+
+
+            <!-- QUAY LẠI -->
+            <button
+                class="nav-btn back-btn"
+                type="button"
+                onclick="history.back()"
+            >
+                ← Quay lại
+            </button>
+
+
+        </header>
+
+
+        <!-- ========================================
+             KHU VỰC NỘI DUNG CHÍNH
+        ======================================== -->
+
+        <div class="ai-main-layout">
+
+
+            <!-- ========================================
+                 CỘT TRÁI: ROBOT AI
+            ======================================== -->
+
+            <section class="ai-left-panel">
+
+
+                <!-- TIÊU ĐỀ NHỎ -->
+               
+                <!-- BONG BÓNG THOẠI -->
+                <div
+                    id="aiSpeechBubble"
+                    class="ai-speech-bubble"
+                >
+
+                    <p>
+                        Chào bạn! 👋
+                    </p>
+
+                    <p>
+                        Mình là Thỏ Thông Thái.
+                    </p>
+
+                    <p>
+                        Hãy nghe hướng dẫn của mình nhé!
+                    </p>
+
+                </div>
+
+                <!-- VIDEO ROBOT -->
+                <div class="robot-video-box">
+
+                    <video
+                        id="robotGuideVideo"
+                        class="robot-guide-video"
+                        playsinline
+                        preload="metadata"
+                    >
+
+                        <source
+                            src="../assets/video/ai-robot-guide.mp4"
+                            type="video/mp4"
+                        >
+
+                        Trình duyệt của bạn không hỗ trợ video.
+
+                    </video>
+
+                </div>
+
+                <!-- NÚT NGHE HƯỚNG DẪN -->
+                <button
+                    id="playGuideButton"
+                    class="play-guide-button"
+                    type="button"
+                >
+                    ▶️ Nghe lại hướng dẫn
+                </button>
+
+
+            </section>
+
+
+            <!-- ========================================
+                 CỘT PHẢI: BÀI ĐỌC
+            ======================================== -->
+
+            <section class="ai-right-panel">
+                
+
+                <!-- TÊN BÀI ĐỌC -->
+                <div class="reading-heading">
+                    <div class="reading-label-row">
+
+                        <span class="reading-heading-icon">
+                            📖
+                        </span>
+
+                        <p class="reading-label">
+                            BÀI ĐỌC
+                        </p>
+
+                    </div>
+                <!-- HƯỚNG DẪN NGẮN -->
+                    <p class="reading-instruction">
+                        Em hãy đọc to, rõ ràng toàn bộ bài đọc dưới đây nhé!
+                    </p>
+                    <h2
+                        id="readingTitle"
+                        class="reading-title"
+                >
+                    Tôi là học sinh lớp 1
+                </h2>
+
+            </div>
+
+                <!-- NỘI DUNG TOÀN BỘ BÀI ĐỌC -->
+                <div
+                    id="readingContent"
+                    class="reading-content"
+                >
+
+                    <p>
+                        Nội dung toàn bộ bài đọc sẽ hiển thị ở đây.
+                    </p>
+
+                </div>
+
+
+                <!-- NÚT BẮT ĐẦU ĐỌC -->
+                <button
+                    id="startReadingButton"
+                    class="start-reading-button"
+                    type="button"
+                >
+
+                    <img
+                        src="../assets/icons/microphone.png"
+                        alt=""
+                        class="microphone-icon"
+                    >
+
+                    <span>
+                        BẮT ĐẦU ĐỌC
+                    </span>
+
+                </button>
+            <!-- NÚT NGHE LẠI BẢN GHI -->
+            <button
+                id="playRecordingButton"
+                class="play-recording-button"
+                type="button"
+                hidden
+            >
+                🔊 NGHE LẠI BÀI ĐỌC
+            </button>
+            <!-- TRẠNG THÁI -->
+            <p
+                id="readingStatus"
+                class="reading-status"
+            >
+                Nhấn nút micro khi em đã sẵn sàng.
+            </p>
+
+            <div
+                id="readingResult"
+                class="reading-result"
+                hidden
+            ></div>
+<!-- NÚT CHUYỂN SANG ĐỌC HIỂU -->
+<button
+    id="goQuizButton"
+    class="go-quiz-button"
+    type="button"
+    hidden
+>
+    Tiếp tục: Đọc hiểu →
+</button>
+            </section>
+
+        </div>
+    </main>
+    <!-- JAVASCRIPT -->
+    <script src="ai-reading.js"></script>
+
+</body>
+
+</html>

@@ -1,6 +1,9 @@
 body{
     margin:0;
-    font-family:Arial,sans-serif;
+        font-family:
+        "Nunito",
+        Arial,
+        sans-serif;
     background:url("../assets/background/home-bg.jpg");
     background-size:cover;
     background-position:center;
@@ -59,6 +62,7 @@ body{
     background:#4CAF50;
     color:white;
     cursor:pointer;
+    
 }
 
 .lesson-buttons button:disabled{
@@ -526,4 +530,423 @@ body{
 
 .reading-start-guide.hidden {
     display: none;
+}
+/* ========================================
+   RESPONSIVE - MÁY TÍNH BẢNG VÀ ĐIỆN THOẠI
+======================================== */
+
+/* Giúp padding không làm phần tử tràn màn hình */
+* {
+    box-sizing: border-box;
+}
+
+
+/* ========================================
+   MÁY TÍNH BẢNG
+   Màn hình từ 768px trở xuống
+======================================== */
+
+@media (max-width: 768px) {
+
+    body {
+        background-attachment: scroll;
+    }
+
+    .lesson-page {
+        min-height: 100vh;
+        padding:
+            100px
+            20px
+            30px;
+    }
+
+    .logo {
+        width: 95px;
+        margin-bottom: 12px;
+    }
+
+    #lessonTitle {
+        font-size: 38px;
+        line-height: 1.25;
+        margin-top: 10px;
+        margin-bottom: 18px;
+    }
+
+    .progress-area {
+        width: 95%;
+        margin-bottom: 22px;
+    }
+
+    .lesson-image {
+        width: 95%;
+        max-width: 600px;
+    }
+
+    .lesson-text {
+        width: 100%;
+        max-width: 700px;
+
+        font-size: 24px;
+        line-height: 1.7;
+
+        margin: 22px auto;
+    }
+
+    .top-nav {
+        top: 12px;
+        left: 12px;
+        right: 12px;
+
+        gap: 10px;
+    }
+
+    .nav-btn {
+        padding: 11px 18px;
+        font-size: 17px;
+    }
+
+    .lesson-buttons {
+        width: 100%;
+
+        justify-content: center;
+
+        gap: 12px;
+
+        margin-top: 22px;
+    }
+
+    .lesson-buttons button {
+        padding: 14px 22px;
+        font-size: 18px;
+    }
+
+    .popup-content {
+        width: 90%;
+        max-height: 90vh;
+
+        padding: 25px 20px;
+
+        overflow-y: auto;
+    }
+
+    #popupImage {
+        width: 220px;
+    }
+
+    #popupWord {
+        font-size: 32px;
+    }
+
+    #popupMeaning {
+        font-size: 21px;
+    }
+
+}
+
+
+/* ========================================
+   ĐIỆN THOẠI
+   Màn hình từ 480px trở xuống
+======================================== */
+
+@media (max-width: 480px) {
+
+    .lesson-page {
+        padding:
+            88px
+            14px
+            24px;
+    }
+
+    .logo {
+        width: 78px;
+        margin-bottom: 8px;
+    }
+
+    #lessonTitle {
+        font-size: 29px;
+        line-height: 1.25;
+
+        margin-top: 8px;
+        margin-bottom: 15px;
+    }
+
+    .progress-area {
+        width: 100%;
+        margin:
+            5px
+            auto
+            18px;
+    }
+
+    .progress-bar {
+        height: 12px;
+    }
+
+    #pageNumber {
+        font-size: 16px;
+        margin-top: 7px;
+    }
+
+    .lesson-image {
+        width: 100%;
+
+        border-radius: 15px;
+    }
+
+    .lesson-text {
+        width: 100%;
+
+        font-size: 20px;
+        line-height: 1.65;
+
+        margin: 20px auto;
+
+        text-align: left;
+    }
+
+    .word {
+        padding: 1px 2px;
+    }
+
+    .top-nav {
+        top: 10px;
+        left: 8px;
+        right: 8px;
+
+        gap: 8px;
+    }
+
+    .nav-btn {
+        flex: 1;
+
+        max-width: 155px;
+
+        padding: 10px 10px;
+
+        font-size: 15px;
+
+        white-space: nowrap;
+    }
+
+    .reading-start-guide {
+        margin:
+            14px
+            auto
+            18px;
+    }
+
+    .hand-pointer {
+        width: 55px;
+    }
+
+    .start-reading-btn {
+        min-width: 160px;
+
+        padding: 13px 24px;
+
+        font-size: 19px;
+    }
+
+    .lesson-buttons {
+        width: 100%;
+
+        display: flex;
+
+        gap: 8px;
+
+        margin-top: 20px;
+    }
+
+    .lesson-buttons button {
+        flex: 1;
+
+        min-width: 0;
+
+        padding: 13px 8px;
+
+        font-size: 16px;
+
+        border-radius: 12px;
+    }
+
+    .popup {
+        padding: 12px;
+    }
+
+    .popup-content {
+        width: 100%;
+
+        max-width: 380px;
+        max-height: 90vh;
+
+        padding:
+            50px
+            18px
+            20px;
+
+        border-radius: 22px;
+
+        overflow-y: auto;
+    }
+
+    .popup-close {
+        top: 10px;
+        right: 10px;
+
+        width: 38px;
+        height: 38px;
+
+        font-size: 19px;
+    }
+
+    #popupImage {
+        width: 180px;
+
+        margin-bottom: 14px;
+    }
+
+    #popupWord {
+        font-size: 29px;
+
+        margin:
+            8px
+            0
+            10px;
+    }
+
+    #popupMeaning {
+        font-size: 19px;
+        line-height: 1.55;
+
+        margin-bottom: 18px;
+    }
+
+    .popup-action {
+        padding: 13px;
+
+        font-size: 19px;
+
+        border-radius: 13px;
+    }
+
+}
+/* ========================================
+   NÚT NGHE LẠI BÀI ĐỌC
+======================================== */
+
+.lesson-buttons {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    gap: 14px;
+
+    width: 100%;
+    max-width: 760px;
+
+    margin: 30px auto 0;
+}
+
+
+.lesson-buttons button {
+    flex: 1;
+
+    min-width: 0;
+
+    padding: 15px 18px;
+
+    border: none;
+    border-radius: 16px;
+
+    font-size: 20px;
+    font-weight: 700;
+
+    cursor: pointer;
+
+    transition:
+        transform 0.2s ease,
+        box-shadow 0.2s ease,
+        opacity 0.2s ease;
+}
+
+
+/* Trang trước và Trang sau */
+
+#prevBtn,
+#nextBtn {
+    background: #4CAF50;
+    color: white;
+}
+
+
+/* Nút Nghe lại */
+
+#replayReadingBtn {
+    background:
+        linear-gradient(
+            135deg,
+            #2196F3,
+            #42A5F5
+        );
+
+    color: white;
+
+    box-shadow:
+        0 6px 16px
+        rgba(33, 150, 243, 0.28);
+}
+
+
+#replayReadingBtn:hover {
+    transform: translateY(-2px);
+
+    box-shadow:
+        0 8px 20px
+        rgba(33, 150, 243, 0.38);
+}
+
+
+.lesson-buttons button:active {
+    transform: scale(0.96);
+}
+
+
+/* Nút bị khóa */
+
+.lesson-buttons button:disabled {
+    opacity: 0.45;
+
+    cursor: not-allowed;
+}
+
+
+/* ========================================
+   ĐIỆN THOẠI
+======================================== */
+
+@media (max-width: 600px) {
+
+    .lesson-buttons {
+        gap: 8px;
+
+        padding: 0 8px;
+
+        box-sizing: border-box;
+    }
+
+
+    .lesson-buttons button {
+        padding: 13px 7px;
+
+        font-size: 15px;
+
+        border-radius: 14px;
+    }
+
+
+    #replayReadingBtn {
+        flex: 0.9;
+    }
+
 }

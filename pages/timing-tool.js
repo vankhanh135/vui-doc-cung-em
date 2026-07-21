@@ -1,72 +1,7 @@
 // ========================================
 // DỮ LIỆU 7 TRANG
 // ========================================
-
-const pages = {
-
-    1: {
-        text:
-            "Tôi tên là Nam, học sinh lớp 1A, Trường Tiểu học Lê Quý Đôn.",
-
-        audio:
-            "../audio/topic1/toi-la-hoc-sinh-lop-1/pages/page1.mp3"
-    },
-
-
-    2: {
-        text:
-            "Ngày đầu đi học, mặc bộ đồng phục của trường, tôi hãnh diện lắm.",
-
-        audio:
-            "../audio/topic1/toi-la-hoc-sinh-lop-1/pages/page2.mp3"
-    },
-
-
-    3: {
-        text:
-            "Hồi đầu năm học, tôi mới học chữ cái.",
-
-        audio:
-            "../audio/topic1/toi-la-hoc-sinh-lop-1/pages/page3.mp3"
-    },
-
-
-    4: {
-        text:
-            "Thế mà bây giờ, tôi đã đọc được truyện tranh.",
-
-        audio:
-            "../audio/topic1/toi-la-hoc-sinh-lop-1/pages/page4.mp3"
-    },
-
-
-    5: {
-        text:
-            "Tôi còn biết làm toán nữa.",
-
-        audio:
-            "../audio/topic1/toi-la-hoc-sinh-lop-1/pages/page5.mp3"
-    },
-
-
-    6: {
-        text:
-            "Tôi có thêm nhiều bạn mới.",
-
-        audio:
-            "../audio/topic1/toi-la-hoc-sinh-lop-1/pages/page6.mp3"
-    },
-
-
-    7: {
-        text:
-            "Ai cũng bảo từ khi đi học, tôi chững chạc hẳn lên.",
-
-        audio:
-            "../audio/topic1/toi-la-hoc-sinh-lop-1/pages/page7.mp3"
-    }
-
-};
+let pages = {};
 
 
 // ========================================
@@ -75,6 +10,8 @@ const pages = {
 
 const pageSelect =
     document.getElementById("pageSelect");
+const modeSelect =
+    document.getElementById("modeSelect");
 
 const textInput =
     document.getElementById("textInput");
@@ -124,22 +61,25 @@ let prepared = false;
 // ========================================
 // HIỂN THỊ TRANG ĐƯỢC CHỌN
 // ========================================
-
-function loadSelectedPage() {
+async function loadSelectedPage() {
 
     const pageNumber =
         pageSelect.value;
 
+    if (!pages[pageNumber]) {
+
+        return;
+
+    }
+
     const page =
         pages[pageNumber];
-
 
     textInput.value =
         page.text;
 
     audioPlayer.src =
         page.audio;
-
 
     resetTool();
 
@@ -412,13 +352,27 @@ function finishTiming() {
             }
         );
 
+    if (modeSelect.value === "preview") {
 
-    output.value =
-        JSON.stringify(
-            timings,
-            null,
-            2
-        );
+        output.value =
+            JSON.stringify(
+                {
+                    previewTimings: timings
+                },
+                null,
+                2
+            );
+
+    } else {
+
+        output.value =
+            JSON.stringify(
+                timings,
+                null,
+                2
+            );
+
+    }
 
 }
 
@@ -495,10 +449,108 @@ finishBtn.addEventListener(
     "click",
     finishTiming
 );
+// ========================================
+// TẢI LESSON.JSON
+// ========================================
+async function loadLesson() {
 
+    try {
 
+        const params =
+            new URLSearchParams(window.location.search);
+
+        const topic =
+            params.get("topic") || "1";
+
+        const lesson =
+            params.get("lesson") || "toi-la-hoc-sinh-lop-1";
+
+        let fileName =
+            modeSelect.value === "preview"
+                ? "ai-reading.json"
+                : "lesson.json";
+
+        const response =
+            await fetch(
+                `../assets/lessons/topic${topic}/${lesson}/${fileName}`
+            );
+
+        const data =
+            await response.json();
+        console.log(modeSelect.value);
+        console.log(data);
+
+        pages = {};
+
+        if (modeSelect.value === "lesson") {
+
+            data.pages.forEach(page => {
+
+                pages[page.page] = {
+
+                    text: page.text,
+
+                    audio: "../" + page.audio
+
+                };
+                console.log("Lesson audio:", pages[page.page].audio);
+
+            });
+
+        } else {
+
+            pages[1] = {
+
+                text:
+                    data.title +
+                    "\n\n" +
+                    data.paragraphs.join(" ") +
+                    "\n\n" +
+                    data.author,
+
+                audio: "../" + data.previewAudio
+
+            };
+            console.log("Preview audio:", pages[1].audio);
+
+        }
+
+        pageSelect.innerHTML = "";
+
+        if (modeSelect.value === "preview") {
+
+            pageSelect.innerHTML =
+                `<option value="1">Toàn bài</option>`;
+
+        } else {
+
+            Object.keys(pages).forEach(key => {
+
+                pageSelect.innerHTML +=
+                    `<option value="${key}">Trang ${key}</option>`;
+
+            });
+
+        }
+        loadSelectedPage();
+
+    }
+
+    catch (error) {
+
+        console.error(error);
+
+        alert("Không tải được dữ liệu.");
+
+    }
+
+}
+modeSelect.addEventListener(
+    "change",
+    loadLesson
+);
 // ========================================
 // KHỞI ĐỘNG
 // ========================================
 
-loadSelectedPage();
+loadLesson();
